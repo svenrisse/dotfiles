@@ -1,0 +1,7 @@
+import:
+  - ~/.alacritty-colorscheme/themes/one_dark.yaml
+
+font:
+  normal:
+    family: JetBrains Mono Nerd Font
+  size: 15

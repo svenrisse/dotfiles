@@ -127,13 +127,13 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminal"
 set $ws2 "2: Firefox"
-set $ws3 "3"
+set $ws3 "3: Dev"
 set $ws4 "4"
-set $ws5 "5"
+set $ws5 "5: Firefox2"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8: Slack"
-set $ws9 "9"
+set $ws9 "9: Discord"
 set $ws10 "10: Spotify"
 
 # switch to workspace
@@ -163,14 +163,25 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Automatically putting workspaces on specific screens
 workspace "1: Terminal" output DP-2 
 workspace "2: Firefox" output DVI-D-0
+workspace "3: Dev" output DP-4  
+workspace "5: Firefox2" output DP-2
 workspace "8: Slack" output DVI-D-0
+workspace "9: Discord" output DVI-D-0
+workspace "10: Spotify" output DVI-D-0
 
 # Automatically putting clients on specific workspaces
-assign [class="Slack"] $ws8
+assign [class="Slack"] → number "8: Slack"
+assign [class="discord"] → number "9: Discord"
+for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
+exec --no-startup-id i3-msg 'workspace 1: Terminal; exec alacritty'
 exec --no-startup-id i3-msg 'workspace 2: Firefox; exec firefox'
-exec --no-startup-id i3-msg "workspace 8: Slack; exec slack"
+exec --no-startup-id i3-msg 'workspace 3: Dev; exec firefox; exec alacritty'
+exec --no-startup-id i3-msg 'workspace 3: Dev; append_layout /home/sven/.config/i3/layouts/dev.json'
+exec slack
+exec discord
+exec spotify
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -214,7 +225,7 @@ bindsym $mod+r mode "resize"
 
 #Gaps
 gaps inner 15px
-gaps outer 15px
+gaps outer 10px
 
 # Wallpaper
 exec_always feh --bg-scale /home/sven/Pictures/wallpaper/ign_astronaut.png

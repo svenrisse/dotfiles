@@ -217,4 +217,4 @@ gaps inner 15px
 gaps outer 15px
 
 # Wallpaper
-exec_always feh --bg-scale /home/sven/Pictures/wallpaper/Chroma-Blue-Dark.jpg
+exec_always feh --bg-scale /home/sven/Pictures/wallpaper/ign_astronaut.png

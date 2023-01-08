@@ -4,22 +4,22 @@
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
-       "height": 1080,
-       "width": 1248,
-       "x": 0,
-       "y": 0
+        "height": 1080,
+        "width": 1248,
+        "x": 0,
+        "y": 0
     },
     "marks": [],
     "name": "Google — Mozilla Firefox",
     "percent": 0.5,
     "swallows": [
-       {
-       // "class": "^firefox$",
-       // "instance": "^Navigator$",
-       // "machine": "^arch$",
-       // "title": "^Google\\ \\—\\ Mozilla\\ Firefox$",
-       // "window_role": "^browser$"
-       }
+        {
+            "class": "firefox",
+            "instance": "Navigator",
+            "machine": "arch",
+            "title": "Google - Mozilla Firefox",
+            "window_role": "browser"
+        }
     ],
     "type": "con"
 }
@@ -38,21 +38,21 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 600,
-               "width": 800,
-               "x": 0,
-               "y": 0
+                "height": 600,
+                "width": 800,
+                "x": 0,
+                "y": 0
             },
             "marks": [],
             "name": "sven@arch:~",
             "percent": 0.5,
             "swallows": [
-               {
-               // "class": "^Alacritty$",
-               // "instance": "^Alacritty$",
-               // "machine": "^arch$",
-               // "title": "^sven\\@arch\\:\\~$"
-               }
+                {
+                    "class": "Alacritty",
+                    "instance": "Alacritty",
+                    "machine": "arch",
+                    "title": "sven@arch:~"
+                }
             ],
             "type": "con"
         },
@@ -61,24 +61,23 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-               "height": 600,
-               "width": 800,
-               "x": 0,
-               "y": 0
+                "height": 600,
+                "width": 800,
+                "x": 0,
+                "y": 0
             },
             "marks": [],
             "name": "sven@arch:~",
             "percent": 0.5,
             "swallows": [
-               {
-               // "class": "^Alacritty$",
-               // "instance": "^Alacritty$",
-               // "machine": "^arch$",
-               // "title": "^sven\\@arch\\:\\~$"
-               }
+                {
+                    "class": "Alacritty",
+                    "instance": "Alacritty",
+                    "machine": "arch",
+                    "title": "sven@arch:~"
+                }
             ],
             "type": "con"
         }
     ]
 }
-

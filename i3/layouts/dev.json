@@ -14,11 +14,7 @@
     "percent": 0.5,
     "swallows": [
         {
-            "class": "firefox",
-            "instance": "Navigator",
-            "machine": "arch",
-            "title": "Google - Mozilla Firefox",
-            "window_role": "browser"
+            "class": "firefox"
         }
     ],
     "type": "con"

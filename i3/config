@@ -175,13 +175,15 @@ assign [class="discord"] → number "9: Discord"
 for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
-exec --no-startup-id i3-msg 'workspace 1: Terminal; exec alacritty'
-exec --no-startup-id i3-msg 'workspace 2: Firefox; exec firefox'
-exec --no-startup-id i3-msg 'workspace 3: Dev; exec firefox; exec alacritty'
 exec --no-startup-id i3-msg 'workspace 3: Dev; append_layout /home/sven/.config/i3/layouts/dev.json'
+exec --no-startup-id i3-msg 'workspace 3: Dev; exec firefox'
+exec alacritty
+exec alacritty
 exec slack
 exec discord
 exec spotify
+exec --no-startup-id i3-msg 'workspace 1: Terminal; exec alacritty'
+exec --no-startup-id i3-msg 'workspace 2: Firefox; exec firefox'
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

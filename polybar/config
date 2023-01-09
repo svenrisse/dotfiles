@@ -355,6 +355,7 @@ interval = 1
 format-prefix = " "
 format = <label>
 exec = ~/.config/polybar/scripts/get_spotify_status.sh
+format-foreground = #7e22ce
 
 [module/spotify-prev]
 type = custom/script

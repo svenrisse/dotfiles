@@ -233,7 +233,7 @@ label-volume-padding-right=2
 [module/date]
 type = internal/date
 interval = 1
-date =   %d-%m-%Y   
+date =   %d-%m   
 label =%date% 
 format-background = #2a2e36
 format-foreground = #82868e

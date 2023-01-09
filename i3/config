@@ -65,13 +65,16 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Lock screen
+bindsym $mod+Shift+x exec betterlockscreen -l dimblur
+exec --no-startup-id betterlockscreen -w dim
+
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
+# bindsym $mod+d exec --no-startup-id dmenu_run
+
+# Start rofi
+bindsym $mod+d exec rofi -show drun -columns 3
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -128,10 +131,10 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Firefox"
 set $ws3 "3: Dev"
-set $ws4 "4"
+set $ws4 "4: Work"
 set $ws5 "5: Firefox2"
-set $ws6 "6"
-set $ws7 "7"
+set $ws6 "6: Calender"
+set $ws7 "7: Work Misc"
 set $ws8 "8: Slack"
 set $ws9 "9: Discord"
 set $ws10 "10: Spotify"
@@ -164,7 +167,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 workspace "1: Terminal" output DP-2 
 workspace "2: Firefox" output DVI-D-0
 workspace "3: Dev" output DP-4  
+workspace "4: Work" output DP-2
 workspace "5: Firefox2" output DP-2
+workspace "6: Calender" output DP-4
+workspace "7: Work Misc" output DP-2
 workspace "8: Slack" output DVI-D-0
 workspace "9: Discord" output DVI-D-0
 workspace "10: Spotify" output DVI-D-0
@@ -175,15 +181,14 @@ assign [class="discord"] → number "9: Discord"
 for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
-exec --no-startup-id i3-msg 'workspace 3: Dev; append_layout /home/sven/.config/i3/layouts/dev.json'
-exec --no-startup-id i3-msg 'workspace 3: Dev; exec firefox'
-exec alacritty
-exec alacritty
-exec slack
-exec discord
-exec spotify
 exec --no-startup-id i3-msg 'workspace 1: Terminal; exec alacritty'
-exec --no-startup-id i3-msg 'workspace 2: Firefox; exec firefox'
+exec --no-startup-id i3-msg 'workspace 6: Calender; exec firefox https://calendar.google.com/calendar/u/1/r/week?tab=mc'
+# workspace 8
+exec slack
+# workspace 9
+exec discord
+# workspace 10
+exec spotify
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

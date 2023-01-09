@@ -181,7 +181,6 @@ assign [class="discord"] → number "9: Discord"
 for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
-exec --no-startup-id i3-msg 'workspace 1: Terminal; exec alacritty'
 exec --no-startup-id i3-msg 'workspace 6: Calender; exec firefox https://calendar.google.com/calendar/u/1/r/week?tab=mc'
 # workspace 8
 exec slack

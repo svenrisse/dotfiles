@@ -66,7 +66,7 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 6 Brands:pixelsize=12;3
 modules-left =i3  xwindow
 modules-center = date
-modules-right = kernel filesystem cpu temp memory pulseaudio power
+modules-right = kernel filesystem cpu temp memory pulseaudio power time
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -154,7 +154,7 @@ label-mode-foreground = ${colors.cream}
 ; Default: %icon% %name%
 label-focused = %icon%
 label-focused-foreground = ${colors.black}
-label-focused-background = ${colors.yellow-alt}
+label-focused-background = ${colors.purple}
 label-focused-padding = 1
 ; Available tokens:
 ;   %name%
@@ -231,15 +231,15 @@ label-padding-right=2
 ;==========================================================
 [module/cpu]
 type = internal/cpu
-interval = 1
-format-prefix = "    "
-format-prefix-foreground = ${colors.black}
-format-prefix-background = ${colors.green}
-label = %percentage:2%%
-label-foreground = ${colors.black}
-label-background = ${colors.green-alt}
-label-padding-left=2
-label-padding-right=2
+interval = 2.5
+
+format-prefix ="  " 
+format =  <label> 
+
+label = CPU %percentage%%
+format-background = #2a2e36
+format-foreground = #989cff
+
 
 ;==========================================================
 [module/temp]
@@ -297,3 +297,15 @@ content-foreground=${colors.black}
 content-background=${colors.yellow}
 
 ; vim:ft=dosini
+[module/time]
+type = internal/date
+interval = 60
+
+format = <label>
+format-background = #2a2e36
+format-foreground = #82868e
+
+date =   %H:%M%{F-}
+time-alt = 󰃭 %a, %b %d%{F-}
+
+label = %date%%time%

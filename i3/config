@@ -73,7 +73,7 @@ exec --no-startup-id betterlockscreen -w dim
 # bindsym $mod+d exec --no-startup-id dmenu_run
 
 # Start rofi
-bindsym $mod+d exec rofi -show drun -columns 3
+bindsym $mod+d exec rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icon
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
 # change focus

@@ -67,7 +67,7 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 6 Brands:pixelsize=12;3
 modules-left = i3  
 modules-center = time date 
-modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates memory battery wlan cpu 
+modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates filesystem memory battery wlan cpu 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -376,6 +376,32 @@ interval = 10
 ; New in version 3.6.0
 warn-percentage = 95
 format = <label> 
-label = %gb_used%
+label =  %gb_used%
 label-warn = RAM %gb_used%
 format-foreground = #d97706
+
+;==========================================================
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 30
+
+; Display fixed precision values
+; Default: false
+fixed-values = false
+
+; Spacing (number of spaces, pixels, points) between entries
+; Default: 2
+spacing = 4
+
+; Default: 90
+; New in version 3.6.0
+warn-percentage = 75
+format-mounted = <label-mounted>
+label-mounted =   %percentage_used%% 
+format-mounted-foreground = #0284c7

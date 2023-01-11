@@ -67,7 +67,7 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 6 Brands:pixelsize=12;3
 modules-left = i3  
 modules-center = time date 
-modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates battery wlan cpu 
+modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates memory battery wlan cpu 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -300,18 +300,6 @@ format-charging-padding = 1
 format-discharging-padding = 1
 
 ;==========================================================
-
-[module/volume]
-type = custom/script
-exec = amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]'
-format = <label>
-internal = 5.0
-label = %output% 
-label-foreground = #BF616A
-label-padding = 1
-
-
-;==========================================================
 [module/power]
 type=custom/text
 content="  "
@@ -375,3 +363,19 @@ type = custom/script
 exec = echo ""
 format = <label>
 click-left = playerctl next -p spotify
+
+;==========================================================
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 10 
+
+; Default: 90
+; New in version 3.6.0
+warn-percentage = 95
+format = <label> 
+label = %gb_used%
+label-warn = RAM %gb_used%
+format-foreground = #d97706

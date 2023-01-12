@@ -67,7 +67,7 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 6 Brands:pixelsize=12;3
 modules-left = i3  
 modules-center = time date 
-modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates filesystem memory battery wlan cpu 
+modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates filesystem memory battery wlan cpu powermenu 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -405,3 +405,24 @@ warn-percentage = 75
 format-mounted = <label-mounted>
 label-mounted =   %percentage_used%% 
 format-mounted-foreground = #0284c7
+
+;==========================================================
+[module/powermenu]
+type = custom/menu
+expand-right = true
+format-spacing = 1
+label-open = 
+menu-3-1-underline = #b91c1c
+label-open-foreground = #b91c1c
+label-open-underline = ${colors.secondary}
+label-close =  
+label-close-foreground = #b91c1c
+label-close-underline = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+menu-0-0 = power off
+menu-0-0-exec = systemctl poweroff 
+menu-0-1 = reboot
+menu-0-1-exec = systemctl reboot 
+menu-0-2 = suspend
+menu-0-2-exec = systemctl suspend

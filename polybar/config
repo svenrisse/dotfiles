@@ -350,6 +350,7 @@ type = custom/script
 exec = echo ""
 format = <label>
 click-left = playerctl previous -p spotify
+format-foreground = #7e22ce
 
 [module/spotify-play-pause]
 type = custom/ipc
@@ -357,12 +358,14 @@ hook-0 = echo ""
 hook-1 = echo ""
 initial = 1
 click-left = playerctl play-pause -p spotify
+format-foreground = #7e22ce
 
 [module/spotify-next]
 type = custom/script
 exec = echo ""
 format = <label>
 click-left = playerctl next -p spotify
+format-foreground = #7e22ce
 
 ;==========================================================
 [module/memory]

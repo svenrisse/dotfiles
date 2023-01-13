@@ -170,7 +170,7 @@ workspace "3: Dev" output DP-4
 workspace "4: Work" output DP-2
 workspace "5: Firefox2" output DP-2
 workspace "6: Calender" output DP-4
-workspace "7: Work Misc" output DP-2
+workspace "7: Meetings" output DP-2
 workspace "8: Slack" output DVI-D-0
 workspace "9: Discord" output DVI-D-0
 workspace "10: Spotify" output DVI-D-0

@@ -1,4 +1,3 @@
-require('impatient')
 require("sven.plugins-setup")
 require("sven.core.options")
 require("sven.core.maps")

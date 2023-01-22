@@ -187,7 +187,7 @@ label-urgent-padding = 1
 ; Separator in between workspaces
 label-separator = -
 label-separator-padding = 2
-label-separator-foreground = ${colors.yellow-alt}
+label-separator-foreground = ${colors.purple}
 
 ;==========================================================
 [module/xwindow]
@@ -331,7 +331,7 @@ type = custom/script
 exec = checkupdates | wc -l
 interval = 1000 
 label =  %output%  
-label-foreground = ${colors.green} 
+label-foreground = #fde047
 
 ;==========================================================
 ;SpotifyStuff
@@ -343,14 +343,14 @@ interval = 1
 format-prefix = " "
 format = <label>
 exec = ~/.config/polybar/scripts/get_spotify_status.sh
-format-foreground = #7e22ce
+format-foreground = #1DB954
 
 [module/spotify-prev]
 type = custom/script
 exec = echo ""
 format = <label>
 click-left = playerctl previous -p spotify
-format-foreground = #7e22ce
+format-foreground = #1DB954
 
 [module/spotify-play-pause]
 type = custom/ipc
@@ -358,14 +358,14 @@ hook-0 = echo ""
 hook-1 = echo ""
 initial = 1
 click-left = playerctl play-pause -p spotify
-format-foreground = #7e22ce
+format-foreground = #1DB954
 
 [module/spotify-next]
 type = custom/script
 exec = echo ""
 format = <label>
 click-left = playerctl next -p spotify
-format-foreground = #7e22ce
+format-foreground = #1DB954
 
 ;==========================================================
 [module/memory]

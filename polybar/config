@@ -154,8 +154,7 @@ label-mode-foreground = ${colors.cream}
 ;   %output%
 ; Default: %icon% %name%
 label-focused = %icon%
-label-focused-foreground = ${colors.black}
-label-focused-background = ${colors.purple}
+label-focused-foreground = ${colors.purple}
 label-focused-padding = 1
 ; Available tokens:
 ;   %name%

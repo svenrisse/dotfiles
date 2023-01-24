@@ -30,6 +30,8 @@ return require("packer").startup({
 		-- themes
 		use("folke/tokyonight.nvim") -- tokyonight theme
 		use("navarasu/onedark.nvim") -- One Dark theme
+		use("rose-pine/neovim")
+		use("kvrohit/mellow.nvim")
 
 		use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 		use("ThePrimeagen/vim-be-good")
@@ -157,6 +159,9 @@ return require("packer").startup({
 
 		-- indent blankline
 		use("lukas-reineke/indent-blankline.nvim")
+
+		-- hightling to long lines
+		use("lcheylus/overlength.nvim")
 
 		-- automatic bracket pairs
 		use({

@@ -131,10 +131,10 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Firefox"
 set $ws3 "3: Dev"
-set $ws4 "4: Work"
+set $ws4 "4: Prev"
 set $ws5 "5: Firefox2"
 set $ws6 "6: Calender"
-set $ws7 "7: Meetings"
+set $ws7 "7: Work Misc"
 set $ws8 "8: Slack"
 set $ws9 "9: Discord"
 set $ws10 "10: Spotify"
@@ -167,10 +167,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 workspace "1: Terminal" output DP-2 
 workspace "2: Firefox" output DVI-D-0
 workspace "3: Dev" output DP-4  
-workspace "4: Work" output DP-2
+workspace "4: Prev" output DP-2
 workspace "5: Firefox2" output DP-2
 workspace "6: Calender" output DP-4
-workspace "7: Meetings" output DP-2
+workspace "7: Work Misc" output DP-2
 workspace "8: Slack" output DVI-D-0
 workspace "9: Discord" output DVI-D-0
 workspace "10: Spotify" output DVI-D-0

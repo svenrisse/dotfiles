@@ -14,6 +14,7 @@ null_ls.setup({
 		formatting.prismaFmt,
 		diagnostics.eslint_d,
 		code_actions.eslint_d,
+		formatting.rustfmt,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

@@ -167,7 +167,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 workspace "1: Terminal" output DP-2 
 workspace "2: Firefox" output DVI-D-0
 workspace "3: Dev" output DP-4  
-workspace "4: Prev" output DP-2
+workspace "4: Prev" output DP-4
 workspace "5: Firefox2" output DP-2
 workspace "6: Calender" output DP-4
 workspace "7: Work Misc" output DP-2

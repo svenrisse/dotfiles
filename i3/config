@@ -76,6 +76,9 @@ exec --no-startup-id betterlockscreen -w dim
 bindsym $mod+d exec rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icon
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
+# set keyboard layout
+exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down

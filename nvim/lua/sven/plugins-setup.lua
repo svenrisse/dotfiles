@@ -97,6 +97,9 @@ return require("packer").startup({
 		-- vs-code like icons
 		use("kyazdani42/nvim-web-devicons")
 
+		-- tabbar plugin
+		use({ "romgrk/barbar.nvim", requires = "nvim-web-devicons" })
+
 		-- colorizer
 		use("NvChad/nvim-colorizer.lua")
 

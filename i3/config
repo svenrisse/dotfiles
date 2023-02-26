@@ -79,6 +79,9 @@ bindsym $mod+d exec rofi -terminal alacritty -show drun -icon-theme "Papirus" -s
 # set keyboard layout
 exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
 
+exec_always --no-startup-id xrandr --output DP-2 --mode 2560x1440 --left-of DP-4
+exec_always --no-startup-id xrandr --output DP-4 --mode 2560x1440 --right-of DP-2
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down

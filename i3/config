@@ -168,15 +168,15 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Automatically putting workspaces on specific screens
 workspace "1: Terminal" output DP-2 
-workspace "2: Firefox" output DVI-D-0
+workspace "2: Firefox" output DP-4
 workspace "3: Dev" output DP-4  
 workspace "4: Prev" output DP-4
 workspace "5: Firefox2" output DP-2
 workspace "6: Calender" output DP-4
 workspace "7: Work Misc" output DP-2
-workspace "8: Slack" output DVI-D-0
-workspace "9: Discord" output DVI-D-0
-workspace "10: Spotify" output DVI-D-0
+workspace "8: Slack" output DP-4
+workspace "9: Discord" output DP-4
+workspace "10: Spotify" output DP-4
 
 # Automatically putting clients on specific workspaces
 assign [class="Slack"] → number "8: Slack"
@@ -184,13 +184,13 @@ assign [class="discord"] → number "9: Discord"
 for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
-exec --no-startup-id i3-msg 'workspace 6: Calender; exec firefox https://calendar.google.com/calendar/u/1/r/week?tab=mc'
 # workspace 8
 exec slack
 # workspace 9
 exec discord
 # workspace 10
 exec spotify
+exec nvidia-settings
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

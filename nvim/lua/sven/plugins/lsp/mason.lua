@@ -30,6 +30,5 @@ lspconfig.setup({
 		"marksman",
 		"tailwindcss",
 		"emmet_ls",
-		"rust-analyzer",
 	},
 })

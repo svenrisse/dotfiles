@@ -58,6 +58,8 @@ nvim_lsp.tsserver.setup({
   capabilities = capabilities,
 })
 
+nvim_lsp.astro.setup({})
+
 nvim_lsp.jsonls.setup({
   capabilities = capabilities,
 })

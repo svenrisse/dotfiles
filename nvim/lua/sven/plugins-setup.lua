@@ -58,6 +58,17 @@ return require("packer").startup({
     })
     use("nvim-treesitter/nvim-treesitter-textobjects")
 
+    -- comment
+    use("JoosepAlviste/nvim-ts-context-commentstring")
+    use({
+      "numToStr/Comment.nvim",
+      config = function()
+        require("Comment").setup({
+          pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+        })
+      end,
+    })
+
     -- noice
     use({
       "folke/noice.nvim",
@@ -156,13 +167,6 @@ return require("packer").startup({
     -- smooth scrolling
     use("karb94/neoscroll.nvim")
 
-    use({
-      "ggandor/leap.nvim",
-      config = function()
-        require("leap").set_default_keymaps()
-      end,
-    })
-
     -- managing & installing lsp servers, linters & formatters
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
@@ -181,9 +185,6 @@ return require("packer").startup({
 
     -- indent blankline
     use("lukas-reineke/indent-blankline.nvim")
-
-    -- hightling to long lines
-    use("lcheylus/overlength.nvim")
 
     -- automatic bracket pairs
     use({
@@ -209,9 +210,6 @@ return require("packer").startup({
         require("gitsigns").setup()
       end,
     })
-
-    -- diagnostics list
-    use("folke/trouble.nvim")
 
     if packer_bootstrap then
       require("packer").sync()

@@ -67,7 +67,7 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 6 Brands:pixelsize=12;3
 modules-left = i3  
 modules-center = time date 
-modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates filesystem memory battery wlan cpu powermenu 
+modules-right = spotify spotify-prev spotify-play-pause spotify-next pacman-updates bluetooth-battery filesystem memory battery wlan cpu powermenu 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -331,6 +331,15 @@ exec = checkupdates | wc -l
 interval = 1000 
 label =  %output%  
 label-foreground = #fde047
+
+;==========================================================
+[module/bluetooth-battery]
+type = custom/script
+;exec = dbus-send --print-reply=literal --system --dest=org.bluez /org/bluez/hci0/dev_AC_80_0A_77_44_86 org.freedesktop.DBus.Properties.Get string:"org.bluez.Battery1" string:"Percentage" | cut -b 23-24 
+exec = dbus-send --print-reply=literal --system --dest=org.bluez /org/bluez/hci0/dev_AC_80_0A_77_44_86 org.freedesktop.DBus.Properties.Get string:"org.bluez.Battery1" string:"Percentage" | cut -b 23-24
+interval = 1000 
+label =🎧  %output% 
+label-foreground = #98C379
 
 ;==========================================================
 ;SpotifyStuff

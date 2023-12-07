@@ -17,8 +17,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
   buf_set_keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
   buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
-  buf_set_keymap("n", "<C-j>", "<Cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
-  buf_set_keymap("i", "<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
+  buf_set_keymap("n", "<C-x>", "<Cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
+  -- buf_set_keymap("i", "<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
 end
 
 protocol.CompletionItemKind = {

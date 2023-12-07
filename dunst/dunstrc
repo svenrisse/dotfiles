@@ -4,7 +4,7 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 1 
+    monitor = 2 
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -24,13 +24,13 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 400
+    width = 300
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300 
+    height = 200 
 
     # Position the notification in the top right corner
-    origin = top-left
+    origin = bottom-left
 
     # Offset from the origin
     offset = 10x50
@@ -68,7 +68,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 80
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -96,7 +96,7 @@
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 5
 
     # Define a color for the separator.
     # possible values are:
@@ -315,9 +315,10 @@
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#a78bfa"
+    # background = "#a78bfa"
+    background = "#282C34"
     foreground = "#ffffff"
-    timeout = 20
+    timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 

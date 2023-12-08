@@ -34,7 +34,7 @@ return require("packer").startup({
     use("kvrohit/mellow.nvim")
 
     use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
-    use("ThePrimeagen/vim-be-good")
+    use("tpope/vim-obsession")
 
     -- essential plugins
     use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)

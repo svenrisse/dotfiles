@@ -5,7 +5,7 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 0 
+    monitor = 1 
     # Display notifications on monitor with mouse focus
     follow = none
     # Set {width}x{height} and {x_pos}+{y_pos}

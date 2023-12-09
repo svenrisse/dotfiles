@@ -1,106 +1,138 @@
 return {
-  "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true },
-  },
-  config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
+	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+		{ "antosha417/nvim-lsp-file-operations", config = true },
+	},
+	config = function()
+		-- import lspconfig plugin
+		local lspconfig = require("lspconfig")
 
-    -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- import cmp-nvim-lsp plugin
+		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    local keymap = vim.keymap -- for conciseness
+		local keymap = vim.keymap -- for conciseness
 
-    local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
-      opts.buffer = bufnr
+		local opts = { noremap = true, silent = true }
+		local on_attach = function(client, bufnr)
+			opts.buffer = bufnr
 
-      -- set keybinds
-      buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-      buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-      buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
-      buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-      buf_set_keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-      buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
-      buf_set_keymap("n", "<C-x>", "<Cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
-      end
+			opts.desc = "Show LSP references"
+			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-    -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+			opts.desc = "Go to declaration"
+			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+			opts.desc = "Show LSP definitions"
+			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
-    -- configure html server
-    lspconfig["html"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+			opts.desc = "Show LSP implementations"
+			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
-    -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+			opts.desc = "Show LSP type definitions"
+			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
-    -- configure css server
-    lspconfig["cssls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+			opts.desc = "See available code actions"
+			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
-    -- configure tailwindcss server
-    lspconfig["tailwindcss"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+			opts.desc = "Smart rename"
+			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
-    -- configure prisma orm server
-    lspconfig["prismals"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+			opts.desc = "Show buffer diagnostics"
+			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
-   -- configure emmet language server
-    lspconfig["emmet_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    })
+			opts.desc = "Show line diagnostics"
+			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
-    -- configure python server
-    lspconfig["pyright"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+			opts.desc = "Go to previous diagnostic"
+			keymap.set("n", "<C-X>", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
-    -- configure lua server (with special settings)
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = { -- custom settings for lua
-        Lua = {
-          -- make the language server recognize "vim" global
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            -- make language server aware of runtime files
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
-            },
-          },
-        },
-      },
-    })
-  end,
+			opts.desc = "Go to next diagnostic"
+			keymap.set("n", "<C-x>", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+
+			opts.desc = "Show documentation for what is under cursor"
+			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
+			opts.desc = "Restart LSP"
+			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+			-- set keybinds
+			keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+		end
+
+		-- used to enable autocompletion (assign to every lsp server config)
+		local capabilities = cmp_nvim_lsp.default_capabilities()
+
+		-- Change the Diagnostic symbols in the sign column (gutter)
+		-- (not in youtube nvim video)
+		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		end
+
+		-- configure html server
+		lspconfig["html"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure typescript server with plugin
+		lspconfig["tsserver"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure css server
+		lspconfig["cssls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure tailwindcss server
+		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure prisma orm server
+		lspconfig["prismals"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure emmet language server
+		lspconfig["emmet_ls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+		})
+
+		-- configure python server
+		lspconfig["pyright"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure lua server (with special settings)
+		lspconfig["lua_ls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = { -- custom settings for lua
+				Lua = {
+					-- make the language server recognize "vim" global
+					diagnostics = {
+						globals = { "vim" },
+					},
+					workspace = {
+						-- make language server aware of runtime files
+						library = {
+							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+							[vim.fn.stdpath("config") .. "/lua"] = true,
+						},
+					},
+				},
+			},
+		})
+	end,
 }

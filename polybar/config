@@ -324,61 +324,6 @@ time-alt = 󰃭 %a, %b %d%{F-}
 label = %date%%time%
 
 ;==========================================================
-<<<<<<< HEAD
-=======
-[module/pacman-updates]
-type = custom/script
-;exec = pacman -Qu | wc -l 
-exec = checkupdates | wc -l
-interval = 1000 
-label =  %output%  
-label-foreground = #fde047
-
-;==========================================================
-[module/bluetooth-battery]
-type = custom/script
-;exec = dbus-send --print-reply=literal --system --dest=org.bluez /org/bluez/hci0/dev_AC_80_0A_77_44_86 org.freedesktop.DBus.Properties.Get string:"org.bluez.Battery1" string:"Percentage" | cut -b 23-25 
-exec = dbus-send --print-reply=literal --system --dest=org.bluez /org/bluez/hci0/dev_AC_80_0A_77_44_86 org.freedesktop.DBus.Properties.Get string:"org.bluez.Battery1" string:"Percentage" | cut -b 23-25
-interval = 1000 
-label =🎧  %output% 
-label-foreground = #98C379
-
-;==========================================================
-;SpotifyStuff
-[module/spotify]
-type = custom/script
-tail = true
-interval = 1
-; prefix symbol is shown before the text
-format-prefix = " "
-format = <label>
-exec = ~/.config/polybar/scripts/get_spotify_status.sh
-format-foreground = #1DB954
-
-[module/spotify-prev]
-type = custom/script
-exec = echo ""
-format = <label>
-click-left = playerctl previous -p spotify
-format-foreground = #1DB954
-
-[module/spotify-play-pause]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo ""
-initial = 1
-click-left = playerctl play-pause -p spotify
-format-foreground = #1DB954
-
-[module/spotify-next]
-type = custom/script
-exec = echo ""
-format = <label>
-click-left = playerctl next -p spotify
-format-foreground = #1DB954
-
-;==========================================================
->>>>>>> origin/main
 [module/memory]
 type = internal/memory
 

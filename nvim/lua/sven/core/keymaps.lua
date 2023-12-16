@@ -35,6 +35,15 @@ keymap.set("n", "<leader>tp", "<Cmd>BufferPrevious<CR>") --  go to previous tab
 -- Plugin Keybinds
 ----------------------
 
+-- diffview toggle
+keymap.set("n", "<leader>dv", function()
+	if next(require("diffview.lib").views) == nil then
+		vim.cmd("DiffviewOpen")
+	else
+		vim.cmd("DiffviewClose")
+	end
+end)
+
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 

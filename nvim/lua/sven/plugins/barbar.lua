@@ -13,6 +13,10 @@ return {
 			-- insert_at_start = true,
 			-- …etc.
 			animations = false,
+			icons = {
+				separator = { left = "", right = "" },
+				separator_at_end = false,
+			},
 		},
 		version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	},

@@ -133,7 +133,7 @@ label-mode-foreground = ${colors.Maroon}
 ; Default: %icon% %name%
 label-focused = %icon%
 label-focused-foreground = ${colors.base}
-label-focused-background = ${colors.red}
+label-focused-background = ${colors.yellow}
 label-focused-padding = 3
 ; Available tokens:
 ;   %name%
@@ -161,7 +161,7 @@ label-visible-padding = 3
 ; Default: %icon% %name%
 label-urgent = %icon%
 label-urgent-foreground = ${colors.base}
-label-urgent-background = ${colors.yellow}
+label-urgent-background = ${colors.red}
 label-urgent-padding = 3
 ; Separator in between workspaces
 label-separator = 

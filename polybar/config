@@ -16,14 +16,32 @@
 ;
 ;==========================================================
 [colors]
-base = #282C34
-red = #E06C75
-green = #98C379
-yellow = #E5C07B
-blue = #61AFEF
-magenta = #C678DD
-cyan = #56B6C2
-gray = #ABB2BF
+rosewater =	#f5e0dc
+flamingo = #f2cdcd
+pink = #f5c2e7
+mauve = #cba6f7
+red = #f38ba8
+maroon = #eba0ac
+peach = #fab387
+yellow = #f9e2af
+green = #a6e3a1
+teal = #94e2d5
+sky = #89dceb
+sapphire = #74c7ec
+blue = #89b4fa
+lavender = #b4befe
+text = #cdd6f4
+subtext1 = #bac2de
+subtext0 = #a6adc8
+overlay2 = #9399b2
+pverlay1 = #7f849c
+pverlay0 = #6c7086
+surface2 = #585b70
+surface1 = #45475a
+surface0 = #313244
+base = #1e1e2e
+mantle = #181825
+crust = #11111b
 ;==========================================================
 [bar/example]
 monitor = DP-2
@@ -31,11 +49,11 @@ width = 100%
 height = 20pt
 radius = 0
 dpi = 110
-background = ${colors.base}
-foreground = ${colors.gray}
+background = ${colors.mantle}
+foreground = ${colors.text}
 line-size = 0pt
 border-size = 3pt
-border-color = ${colors.base}
+border-color = ${colors.mantle}
 module-margin = 2 
 separator =
 separator-foreground = ${colors.transparent}
@@ -132,8 +150,8 @@ label-mode-foreground = ${colors.Maroon}
 ;   %output%
 ; Default: %icon% %name%
 label-focused = %icon%
-label-focused-foreground = ${colors.base}
-label-focused-background = ${colors.yellow}
+label-focused-foreground = ${colors.mantle}
+label-focused-background = ${colors.text}
 label-focused-padding = 3
 ; Available tokens:
 ;   %name%
@@ -142,7 +160,7 @@ label-focused-padding = 3
 ;   %output%
 ; Default: %icon% %name%
 label-unfocused = %icon%
-label-unfocused-background = ${colors.base}
+label-unfocused-background = ${colors.mantle}
 label-unfocused-padding = 3
 ; Available tokens:
 ;   %name%
@@ -151,7 +169,7 @@ label-unfocused-padding = 3
 ;   %output%
 ; Default: %icon% %name%
 label-visible = %icon%
-label-visible-underline = ${colors.red}
+label-visible-underline = ${colors.maroon}
 label-visible-padding = 3
 ; Available tokens:
 ;   %name%
@@ -160,8 +178,8 @@ label-visible-padding = 3
 ;   %output%
 ; Default: %icon% %name%
 label-urgent = %icon%
-label-urgent-foreground = ${colors.base}
-label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.mantle}
+label-urgent-background = ${colors.maroon}
 label-urgent-padding = 3
 ; Separator in between workspaces
 label-separator = 
@@ -189,8 +207,8 @@ format-prefix ="  "
 format =  <label> 
 
 label = CPU %percentage%%
-format-background = ${colors.base}
-format-foreground = ${colors.yellow}
+format-background = ${colors.mantle}
+format-foreground = ${colors.mauve}
 
 
 ;==========================================================
@@ -214,8 +232,8 @@ type = internal/date
 interval = 1
 date = %d-%m   
 label =%date% 
-format-background = ${colors.base}
-format-foreground = ${colors.gray}
+format-background = ${colors.mantle}
+format-foreground = ${colors.text}
 
 ;==========================================================
 [settings]
@@ -295,8 +313,8 @@ type = internal/date
 interval = 60
 
 format = <label>
-format-background = ${colors.base}
-format-foreground = ${colors.gray}
+format-background = ${colors.mantle}
+format-foreground = ${colors.text}
 
 date = %H:%M%{F-}
 time-alt = 󰃭 %a, %b %d%{F-}
@@ -310,7 +328,7 @@ type = custom/script
 exec = checkupdates | wc -l
 interval = 1000 
 label =  %output%  
-label-foreground = ${colors.blue}
+label-foreground = ${colors.sapphire}
 
 ;==========================================================
 [module/bluetooth-battery]
@@ -369,7 +387,7 @@ warn-percentage = 95
 format = <label> 
 label =  %gb_used%
 label-warn = RAM %gb_used%
-format-foreground = ${colors.yellow}
+format-foreground = ${colors.mauve}
 
 ;==========================================================
 [module/filesystem]
@@ -395,7 +413,7 @@ spacing = 4
 warn-percentage = 75
 format-mounted = <label-mounted>
 label-mounted =   %percentage_used%% 
-format-mounted-foreground = ${colors.yellow}
+format-mounted-foreground = ${colors.mauve}
 
 ;==========================================================
 [module/powermenu]

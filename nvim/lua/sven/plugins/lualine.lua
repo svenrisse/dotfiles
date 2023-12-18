@@ -9,21 +9,21 @@ return {
 		lualine.setup({
 			options = {
 				theme = "auto",
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = {},
+				lualine_b = { "branch", "diff" },
+				lualine_c = { "diagnostics" },
 				lualine_x = {
 					{
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
 						color = { fg = "#ff9e64" },
 					},
-					{ "filetype" },
-					{ "fileformat" },
 				},
-				lualine_y = { "progress" },
+				lualine_y = { "filetype", "progress" },
 				lualine_z = { "location" },
 			},
 		})

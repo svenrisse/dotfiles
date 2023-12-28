@@ -6,10 +6,10 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "OneDark (base16)"
-config.font = wezterm.font_with_fallback({
-	{ family = "JetBrains Mono Nerd Font", scale = 1.4 },
-})
+config.color_scheme = "Catppuccin Mocha"
+config.font = wezterm.font("JetBrains Mono Nerd Font", { weight = "Regular", italic = false })
+config.font_size = 18.0
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.enable_tab_bar = false
 config.window_padding = {
 	left = 0,

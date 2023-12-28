@@ -7,7 +7,11 @@ return {
 		config = function()
 			local oil = require("oil")
 
-			oil.setup({})
+			oil.setup({
+				view_options = {
+					show_hidden = true,
+				},
+			})
 		end,
 	},
 }

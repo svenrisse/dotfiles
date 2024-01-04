@@ -15,6 +15,9 @@ return {
 						return true
 					end,
 				}),
+				allowed_dirs = {
+    					"~/repos",
+ 				 },
 			})
 		end,
 	},

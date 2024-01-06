@@ -73,7 +73,8 @@ exec --no-startup-id betterlockscreen -w dim
 # bindsym $mod+d exec --no-startup-id dmenu_run
 
 # Start rofi
-bindsym $mod+d exec rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icon
+bindsym $mod+d exec rofi -terminal kitty -show drun -icon-theme "Papirus" -show-icon
+bindsym $mod+p exec rofi -show power-menu -modi power-menu:~/.local/bin/rofi-power-menu
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
 # set keyboard layout

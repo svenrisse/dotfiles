@@ -249,5 +249,5 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s noblank
 
 # Screenshots
-bindsym Shift+Print exec flameshot gui
+bindsym $mod+Shift+p exec flameshot gui
 

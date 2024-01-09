@@ -83,6 +83,7 @@ exec --no-startup-id betterlockscreen -w dim
 # Start rofi
 bindsym $mod+d exec rofi -terminal kitty -show drun -icon-theme "Papirus" -show-icon
 bindsym $mod+p exec rofi -show power-menu -modi power-menu:~/.local/bin/rofi-power-menu
+bindsym $mod+shift+w exec ~/.local/bin/rofi-wifi-menu.sh
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
 # change focus

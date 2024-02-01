@@ -6,6 +6,8 @@ configuration {
   modi: "window,run,drun";
   show-icons: true;
   icon-theme: "Papirus";
+  kb-row-up: "Up,k";
+  kb-row-down: "Down,j";
 }
 
 @theme "/dev/null"

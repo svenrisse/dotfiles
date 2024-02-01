@@ -109,7 +109,7 @@ strip-wsnumbers = true
 index-sort = true
 ; Create click handler used to focus workspace
 ; Default: true
-enable-click = false
+enable-click = true
 ; Use fuzzy (partial) matching on labels when assigning 
 ; icons to workspaces
 ; Example: code;♚ will apply the icon to all workspaces 

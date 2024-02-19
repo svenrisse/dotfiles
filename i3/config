@@ -237,12 +237,11 @@ bindsym $mod+r mode "resize"
 #}
 
 #Gaps
-gaps inner 15px
-gaps outer 10px
+gaps inner 10px
+gaps outer 3px
 
 # Wallpaper
 exec_always feh --bg-scale /home/sven/.config/wallpapers/cat_leaves.png
 
 # Screenshots
 bindsym Shift+Print exec flameshot gui
-

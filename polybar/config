@@ -63,7 +63,7 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 6 Brands:pixelsize=12;3
 modules-left = i3  
 modules-center = time date 
-modules-right = spotify spotify-prev spotify-play-pause spotify-next bluetooth-battery pacman-updates filesystem memory battery wlan cpu 
+modules-right = spotify spotify-prev spotify-play-pause spotify-next bluetooth-battery pulseaudio pacman-updates filesystem memory battery wlan cpu 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -215,16 +215,15 @@ format-foreground = ${colors.mauve}
 [module/pulseaudio]
 type = internal/pulseaudio
 format-volume-prefix = "    "
-format-volume-prefix-foreground = ${colors.black}
-format-volume-prefix-background = ${colors.yellow}
+format-volume-prefix-foreground = ${colors.text}
+format-volume-prefix-background = ${colors.mantle }
 format-volume = <label-volume>
 label-volume = %percentage%%
-label-volume-foreground= ${colors.black}
-label-volume-background= ${colors.yellow-alt}
+label-volume-foreground= ${colors.text}
+label-volume-background= ${colors.mantle}
 label-muted = muted
 label-muted-foreground = ${colors.disabled}
-label-volume-padding-left=2
-label-volume-padding-right=2
+click-right = pavucontrol
 
 ;==========================================================
 [module/date]

@@ -237,8 +237,8 @@ bindsym $mod+r mode "resize"
 #}
 
 #Gaps
-gaps inner 10px
-gaps outer 3px
+gaps inner 7px
+gaps outer 1px
 
 # Wallpaper
 exec_always feh --bg-scale /home/sven/.config/wallpapers/cat_leaves.png

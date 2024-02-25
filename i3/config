@@ -189,7 +189,7 @@ for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
 # workspace 8
-exec slack
+# exec slack
 # workspace 9
 exec discord
 # workspace 10

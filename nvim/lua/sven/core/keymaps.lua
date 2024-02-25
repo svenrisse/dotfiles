@@ -10,10 +10,10 @@ local keymap = vim.keymap -- for conciseness
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
-keymap.set("n", "<C-Left>", "<C-w>h")
-keymap.set("n", "<C-Down>", "<C-w>j")
-keymap.set("n", "<C-Up>", "<C-w>k")
-keymap.set("n", "<C-Right>", "<C-w>l")
+keymap.set("n", "<C-Left>", "<C-w>Left")
+keymap.set("n", "<C-Down>", "<C-w>Down")
+keymap.set("n", "<C-Up>", "<C-w>Up")
+keymap.set("n", "<C-Right>", "<C-w>Right")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")

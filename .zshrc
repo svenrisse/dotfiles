@@ -85,6 +85,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #
+export GOPATH="$HOME/go"
+export PATH=$PATH:$GOPATH/bin
+
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
 alias pac="sudo pacman -Syu"

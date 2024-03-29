@@ -15,7 +15,16 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff" },
-				lualine_c = { "diagnostics", { "filename", path = 1 } },
+				lualine_c = {
+					"diagnostics",
+					{ "filename", path = 1 },
+					"%=",
+					{
+						"harpoon2",
+						indicators = { "1", "2", "3", "4" },
+						active_indicators = { "-1-", "-2-", "-3-", "-4-" },
+					},
+				},
 				lualine_x = {
 					{
 						lazy_status.updates,

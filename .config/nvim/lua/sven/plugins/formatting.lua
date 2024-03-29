@@ -12,6 +12,7 @@ return {
 				javascriptreact = { { "deno", "prettierd" } },
 				typescriptreact = { { "deno", "prettierd" } },
 				svelte = { "prettier" },
+				vue = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },

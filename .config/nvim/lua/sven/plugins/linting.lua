@@ -11,6 +11,7 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
+			vue = { "eslint_d" },
 			python = { "pylint" },
 		}
 

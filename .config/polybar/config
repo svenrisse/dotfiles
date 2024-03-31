@@ -334,7 +334,7 @@ label-foreground = ${colors.sapphire}
 type = custom/script
 ;exec = dbus-send --print-reply=literal --system --dest=org.bluez /org/bluez/hci0/dev_AC_80_0A_77_44_86 org.freedesktop.DBus.Properties.Get string:"org.bluez.Battery1" string:"Percentage" | cut -b 23-25 
 exec = dbus-send --print-reply=literal --system --dest=org.bluez /org/bluez/hci0/dev_AC_80_0A_77_44_86 org.freedesktop.DBus.Properties.Get string:"org.bluez.Battery1" string:"Percentage" | cut -b 23-25
-interval = 1000 
+interval = 100 
 label =🎧  %output% 
 label-foreground = ${colors.green}
 

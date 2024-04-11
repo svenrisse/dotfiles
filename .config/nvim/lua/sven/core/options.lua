@@ -1,4 +1,7 @@
 local opt = vim.opt -- for conciseness
+local augroup = vim.api.nvim_create_augroup
+local yank_group = augroup("HighlightYank", {})
+local autocmd = vim.api.nvim_create_autocmd
 
 -- line numbers
 opt.relativenumber = false -- show relative line numbers
@@ -24,7 +27,7 @@ opt.cursorline = true -- highlight the current cursor line
 vim.opt.scrolloff = 10
 
 -- Decrease update time
-vim.opt.updatetime = 250
+vim.opt.updatetime = 50
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
@@ -50,3 +53,14 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+autocmd("TextYankPost", {
+	group = yank_group,
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timout = 100,
+		})
+	end,
+})

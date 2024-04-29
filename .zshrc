@@ -90,7 +90,8 @@ export PATH=$PATH:$GOPATH/bin
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
-alias pac="sudo pacman -Syu"
+alias pacu="sudo pacman -Syu"
+alias pacs="sudo pacman -S"
 alias ta="tmux attach -t"
 alias lg='lazygit'
 alias wifi="bash ~/.local/bin/rofi-wifi-menu.sh"
@@ -123,4 +124,6 @@ alias sail="vendor/bin/sail"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 eval "$(zoxide init zsh)"
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

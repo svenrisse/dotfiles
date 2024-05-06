@@ -239,7 +239,7 @@ client.placeholder       #6c7086   #1e1e2e #cdd6f4 #6c7086    #6c7086
 client.background        #1e1e2e
 
 #Gaps
-gaps inner 7px
+gaps inner 5px
 gaps outer 1px
 
 # Wallpaper

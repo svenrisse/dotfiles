@@ -90,13 +90,17 @@ export PATH=$PATH:$GOPATH/bin
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
+
 alias pacu="sudo pacman -Syu"
 alias pacs="sudo pacman -S"
+alias pacru="sudo pacman -Qdtq | sudo pacman -Rns -"
+
 alias ta="tmux attach -t"
 alias lg='lazygit'
 alias wifi="bash ~/.local/bin/rofi-wifi-menu.sh"
 alias rwin="sudo grub-reboot 2 && reboot"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
 alias sail="vendor/bin/sail"
 
 # export MANPATH="/usr/local/man:$MANPATH"

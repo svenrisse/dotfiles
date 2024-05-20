@@ -16,12 +16,12 @@ return {
 			-- the theme to use, depends on themes available to silicon
 			theme = "OneHalfDark",
 			-- the background color outside the rendered os window
-			background = "#b4befe",
+			background = "#FFFFFF",
 			-- a path to a background image
 			background_image = nil,
 			-- the paddings to either side
-			pad_horiz = 100,
-			pad_vert = 80,
+			pad_horiz = 50, --100
+			pad_vert = 30, --80
 			-- whether to have the os window rendered with rounded corners
 			no_round_corner = false,
 			-- whether to put the close, minimize, maximise traffic light controls on the border

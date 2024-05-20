@@ -22,7 +22,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				go = { "gofumpt", "goimports", "golines" },
-				rust = { "rustfmt" },
+				--rust = { "rustfmt" },
 				sql = { "sqlfmt" },
 			},
 			format_on_save = {

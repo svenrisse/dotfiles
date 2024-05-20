@@ -87,6 +87,8 @@ source $ZSH/oh-my-zsh.sh
 #
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
+export CARGO="$HOME/.cargo/bin"
+export PATH="$HOME/.cargo/bin"
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"

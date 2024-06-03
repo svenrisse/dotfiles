@@ -8,6 +8,7 @@ help:
 	@echo 'Usage:'
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 
+## confirm: helper to prevent accidental cmds
 .PHONY: confirm
 confirm:
 	@echo -n 'Are you sure? [y/N] ' && read ans && [ $${ans:-N} = y ]
@@ -16,7 +17,7 @@ confirm:
 # Goodies
 # ==================================================================================== #
 
+## stow: stow the dir with --adopt flag
 .PHONY: stow 
-stow: 
+stow: confirm
 	@stow --adopt .
-

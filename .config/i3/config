@@ -178,14 +178,14 @@ workspace "10: Spotify" output DP-4
 
 # Automatically putting clients on specific workspaces
 assign [class="Slack"] → number "8: Slack"
-assign [class="discord"] → number "9: Discord"
+assign [class="vesktop"] → number "9: Discord"
 for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
 # workspace 8
 # exec slack
 # workspace 9
-exec discord
+exec vesktop
 # workspace 10
 exec spotify
 exec nvidia-settings

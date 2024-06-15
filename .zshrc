@@ -102,8 +102,6 @@ alias wifi="bash ~/.local/bin/rofi-wifi-menu.sh"
 alias rwin="sudo grub-reboot 2 && reboot"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-alias sail="vendor/bin/sail"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

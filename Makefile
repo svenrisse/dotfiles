@@ -21,3 +21,8 @@ confirm:
 .PHONY: stow 
 stow: confirm
 	@stow --adopt .
+
+## install: install all packages for new install
+.PHONY: install  
+install: confirm
+	@sudo pacman -S neovim dunst kitty picom polybar rofi tmux ttf-jetbrains-mono-nerd discord pacman-contrib

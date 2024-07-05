@@ -8,7 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 source $ZSH/oh-my-zsh.sh
@@ -86,8 +86,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 #
 export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin
+path+=$PATH:$GOPATH/bin
 export CARGO="$HOME/.cargo/bin"
+
+export PATH
+
+alias emilia="~/.yarn/bin/emilia"
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"

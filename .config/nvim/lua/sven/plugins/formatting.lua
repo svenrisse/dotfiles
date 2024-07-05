@@ -7,10 +7,10 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { { "deno", "prettierd" } },
-				typescript = { { "deno", "prettierd" } },
-				javascriptreact = { { "deno", "prettierd" } },
-				typescriptreact = { { "deno", "prettierd" } },
+				javascript = { { "biome", "prettierd" } },
+				typescript = { { "biome", "prettierd" } },
+				javascriptreact = { { "biome", "prettierd" } },
+				typescriptreact = { { "biome", "prettierd" } },
 				svelte = { "prettier" },
 				vue = { "prettier" },
 				css = { "prettier" },

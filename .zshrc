@@ -95,15 +95,15 @@ alias emilia="~/.yarn/bin/emilia"
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
+alias fzf="fzf --bind 'enter:become(nvim {})' --preview 'bat {}'"
 
-alias pacu="sudo pacman -Syu"
-alias pacs="sudo pacman -S"
-alias pacru="sudo pacman -Qdtq | sudo pacman -Rns -"
+alias pu="sudo pacman -Syu"
+alias ps="sudo pacman -S"
+alias pru="sudo pacman -Qdtq | sudo pacman -Rns -"
 
 alias ta="tmux attach -t"
 alias lg='lazygit'
-alias wifi="bash ~/.local/bin/rofi-wifi-menu.sh"
-alias rwin="sudo grub-reboot 2 && reboot"
+alias wifi="bash ~/.local/bin/rofi-wifi-menu/rofi-wifi-menu.sh"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # export MANPATH="/usr/local/man:$MANPATH"

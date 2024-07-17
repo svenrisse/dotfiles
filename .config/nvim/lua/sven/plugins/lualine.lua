@@ -14,15 +14,14 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff" },
+				lualine_b = { "diagnostics" },
 				lualine_c = {
-					"diagnostics",
 					{ "filename", path = 1 },
 					"%=",
 					{
 						"harpoon2",
-						indicators = { "1", "2", "3", "4" },
-						active_indicators = { "-1-", "-2-", "-3-", "-4-" },
+						indicators = { "1", "2", "3", "4", "5", "6" },
+						active_indicators = { "-1-", "-2-", "-3-", "-4-", "-5-", "-6-" },
 					},
 				},
 				lualine_x = {
@@ -32,8 +31,8 @@ return {
 						color = { fg = "#ff9e64" },
 					},
 				},
-				lualine_y = { "filetype" },
-				lualine_z = { "location" },
+				lualine_y = { "diff" },
+				lualine_z = { "searchcount" },
 			},
 		})
 	end,

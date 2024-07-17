@@ -75,9 +75,15 @@ bindsym $mod+p exec rofi -show power-menu -modi power-menu:~/.local/bin/rofi-pow
 exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
 
 # set monitors
-exec_always --no-startup-id xrandr --output eDP --off
-exec_always --no-startup-id xrandr --output HMDI-A-0 --mode 2560x1440 --right-of eDP
-exec_always --no-startup-id xrandr --output DisplayPort-7 --mode 2560x1440 --right-of HMDI-A-0
+
+# parents setup 
+exec_always --no-startup-id xrandr --output eDP --mode 1920x1200 --right-of HDMI-1
+exec_always --no-startup-id xrandr --output HMDI-1 --mode 1920x1080 --left-of eDP
+
+# home setup
+#exec_always --no-startup-id xrandr --output eDP --off
+#exec_always --no-startup-id xrandr --output HMDI-A-0 --mode 2560x1440 --right-of eDP
+#exec_always --no-startup-id xrandr --output DisplayPort-7 --mode 2560x1440 --right-of HMDI-A-0
 
 # set vibrancy
 exec_always --no-startup-id vibrant-cli HMDI-A-0 2
@@ -249,8 +255,8 @@ client.placeholder       #6c7086   #1e1e2e #cdd6f4 #6c7086    #6c7086
 client.background        #1e1e2e
 
 #Gaps
-gaps inner 5px
-gaps outer 1px
+gaps inner 0px
+gaps outer 0px
 
 # Wallpaper
 exec_always feh --bg-scale /home/sven/dotfiles/.config/wallpapers/cat_leaves.png

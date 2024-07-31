@@ -77,13 +77,16 @@ exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
 # set monitors
 
 # parents setup 
-exec_always --no-startup-id xrandr --output eDP --mode 1920x1200 --right-of HDMI-1
-exec_always --no-startup-id xrandr --output HMDI-1 --mode 1920x1080 --left-of eDP
+#exec_always --no-startup-id xrandr --output eDP --mode 1920x1200 --right-of HDMI-1
+#exec_always --no-startup-id xrandr --output HMDI-1 --mode 1920x1080 --left-of eDP
 
 # home setup
-#exec_always --no-startup-id xrandr --output eDP --off
-#exec_always --no-startup-id xrandr --output HMDI-A-0 --mode 2560x1440 --right-of eDP
-#exec_always --no-startup-id xrandr --output DisplayPort-7 --mode 2560x1440 --right-of HMDI-A-0
+exec_always --no-startup-id xrandr --output eDP --off
+exec_always --no-startup-id xrandr --output HMDI-A-0 --mode 2560x1440 --right-of eDP
+#exec_always --no-startup-id xrandr --output DisplayPort-8 --mode 2560x1440 --right-of HMDI-A-0
+
+# home bed
+#exec_always --no-startup-id xrandr --output eDP 
 
 # set vibrancy
 exec_always --no-startup-id vibrant-cli HMDI-A-0 2

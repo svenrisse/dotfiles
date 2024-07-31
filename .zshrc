@@ -88,20 +88,27 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export CARGO="$HOME/.cargo/bin"
+export PATH
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
 alias fzf="fzf --bind 'enter:become(nvim {})' --preview 'bat {}'"
 
+
 alias pu="sudo pacman -Syu"
 alias ps="sudo pacman -S"
 alias pru="sudo pacman -Qdtq | sudo pacman -Rns -"
 
-alias ta="tmux attach -t"
-alias lg='lazygit'
+alias cd="z"
+alias ls="eza --git --icons=auto -a --color=always"
+alias fzf="fzf --bind 'enter:become(nvim {})' --preview 'bat {}'"
 alias wifi="bash ~/.local/bin/rofi-wifi-menu/rofi-wifi-menu.sh"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
+alias ta="tmux attach -t"
+alias tc="rm -rf ~/.local/share/tmux/resurrect/"
+
+alias lg='lazygit'
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

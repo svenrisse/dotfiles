@@ -88,7 +88,7 @@ return {
 					{
 						name = "@vue/typescript-plugin",
 						location = vue_typescript_plugin,
-						languages = { "javascript", "typescript", "vue" },
+						languages = { "vue" },
 					},
 				},
 			},
@@ -102,8 +102,11 @@ return {
 		})
 
 		lspconfig.volar.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+			init_options = {
+				vue = {
+					hybridMode = false,
+				},
+			},
 		})
 
 		-- configure css server

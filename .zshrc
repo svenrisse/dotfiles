@@ -88,6 +88,7 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH="$HOME/go"
 path+=$PATH:$GOPATH/bin
 export CARGO="$HOME/.cargo/bin"
+export PATH
 
 export PATH
 

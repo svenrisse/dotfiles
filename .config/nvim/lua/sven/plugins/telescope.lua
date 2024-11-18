@@ -21,13 +21,16 @@ return {
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
 				},
-				file_ignore_patterns = {
-					".git",
-				},
+				file_ignore_patterns = {},
 			},
 			pickers = {
 				find_files = {
 					hidden = true,
+				},
+				live_grep = {
+					additional_args = function(opts)
+						return { "--hidden" }
+					end,
 				},
 			},
 		})
@@ -38,6 +41,7 @@ return {
 		local keymap = vim.keymap -- for conciseness
 
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+		keymap.set("n", "<leader>fo", "<cmd>Telescope resume<cr>", { desc = "Resume last fuzzy find" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })

@@ -5,7 +5,8 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
-opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+opt.statuscolumn = "%s %l %r "
+opt.number = true
 
 -- tabs & indentation
 opt.tabstop = 4 -- 2 spaces for tabs (prettier default)

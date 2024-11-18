@@ -92,11 +92,9 @@ export PATH
 
 export PATH
 
-alias emilia="~/.yarn/bin/emilia"
-
 alias pu="sudo pacman -Syu"
 alias ps="sudo pacman -S"
-alias pru="sudo pacman -Qdtq | sudo pacman -Rns -"
+alias pc="sudo pacman -Qdtq | sudo pacman -Rns -"
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
@@ -108,6 +106,11 @@ alias ta="tmux attach -t"
 alias tc="rm -rf ~/.local/share/tmux/resurrect/"
 
 alias lg='lazygit'
+
+# wtf stuff
+alias emilia="~/.yarn/bin/emilia"
+alias vs='openvpn3 session-start --config Downloads/device_1728977363048_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_\[Frankfurt\].ovpn'
+alias vc="openvpn3 session-manage --config Downloads/device_1728977363048_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_\[Frankfurt\].ovpn --disconnect"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

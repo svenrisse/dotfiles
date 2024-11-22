@@ -44,9 +44,9 @@ mantle = #181825
 crust = #11111b
 ;==========================================================
 [bar/example]
-monitor = DP-2
+monitor = HDMI-A-0
 width = 100%
-height = 20pt
+height = 18pt
 radius = 0
 dpi = 110
 background = ${colors.mantle}
@@ -63,7 +63,7 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 6 Brands:pixelsize=12;3
 modules-left = i3  
 modules-center = time date 
-modules-right = bluetooth-battery pulseaudio pacman-updates filesystem memory battery wlan cpu powermenu
+modules-right = pulseaudio pacman-updates filesystem memory battery wlan cpu powermenu
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -250,8 +250,8 @@ label-connected-foreground = #A3BE8C
 ;==========================================================
 [module/battery]
 type = internal/battery
-battery = BAT1
-adapter = AC0
+battery = BAT0
+adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>

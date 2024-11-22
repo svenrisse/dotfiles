@@ -8,7 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 source $ZSH/oh-my-zsh.sh
@@ -86,18 +86,19 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 #
 export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin
+path+=$PATH:$GOPATH/bin
+
 export CARGO="$HOME/.cargo/bin"
+path+=$PATH:$CARGO
+
+export RUSTLINGS="$HOME/.cargo/bin/rustlings"
+path+=$PATH:$RUSTLINGS
+
 export PATH
-
-alias cd="z"
-alias ls="eza --git --icons=auto -a --color=always"
-alias fzf="fzf --bind 'enter:become(nvim {})' --preview 'bat {}'"
-
 
 alias pu="sudo pacman -Syu"
 alias ps="sudo pacman -S"
-alias pru="sudo pacman -Qdtq | sudo pacman -Rns -"
+alias pc="sudo pacman -Qdtq | sudo pacman -Rns -"
 
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
@@ -109,6 +110,10 @@ alias ta="tmux attach -t"
 alias tc="rm -rf ~/.local/share/tmux/resurrect/"
 
 alias lg='lazygit'
+
+# wtf stuff
+alias vs='openvpn3 session-start --config Downloads/device_1728977363048_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_\[Frankfurt\].ovpn'
+alias vc="openvpn3 session-manage --config Downloads/device_1728977363048_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_\[Frankfurt\].ovpn --disconnect"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

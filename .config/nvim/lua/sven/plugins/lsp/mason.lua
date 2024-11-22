@@ -27,7 +27,9 @@ return {
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
-				"tsserver",
+				"ts_ls",
+				"vtsls",
+				"volar",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -47,6 +49,7 @@ return {
 			ensure_installed = {
 				"prettier",
 				"prettierd",
+				"biome",
 				"stylua", -- lua formatter
 				"isort", -- python formatter
 				"black", -- python formatter

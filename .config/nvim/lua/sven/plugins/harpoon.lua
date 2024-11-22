@@ -1,4 +1,5 @@
 return {
+	{ "letieu/harpoon-lualine" },
 	{
 		"theprimeagen/harpoon",
 		branch = "harpoon2",

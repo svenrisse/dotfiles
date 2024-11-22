@@ -54,7 +54,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -74,8 +74,27 @@ bindsym $mod+p exec rofi -show power-menu -modi power-menu:~/.local/bin/rofi-pow
 # set keyboard layout
 exec_always --no-startup-id setxkbmap -layout us -variant altgr-intl
 
-exec_always --no-startup-id xrandr --output DP-2 --mode 2560x1440 --left-of DP-4
-exec_always --no-startup-id xrandr --output DP-4 --mode 2560x1440 --right-of DP-2
+# set monitors
+
+# parents setup 
+#exec_always --no-startup-id xrandr --output eDP --mode 1920x1200 --right-of HDMI-1
+#exec_always --no-startup-id xrandr --output HMDI-1 --mode 1920x1080 --left-of eDP
+
+# home setup
+exec_always --no-startup-id xrandr --output eDP --off
+exec_always --no-startup-id xrandr --output HMDI-A-0 --mode 2560x1440 --right-of eDP
+exec_always --no-startup-id xrandr --output DisplayPort-7 --mode 2560x1440 --right-of HMDI-A-0
+
+# home bed
+#exec_always --no-startup-id xrandr --output eDP 
+
+# set vibrancy
+exec_always --no-startup-id vibrant-cli HMDI-A-0 2
+exec_always --no-startup-id vibrant-cli DisplayPort-7 2
+
+# disable sleep & power-saving
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms
 
 # change focus
 bindsym $mod+h focus left
@@ -165,16 +184,16 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Automatically putting workspaces on specific screens
-workspace "1: Terminal" output DP-2 
-workspace "2: Firefox" output DP-4
-workspace "3: Dev" output DP-4  
-workspace "4: Prev" output DP-4
-workspace "5: Firefox2" output DP-2
-workspace "6: Calender" output DP-4
-workspace "7: Work Misc" output DP-2
-workspace "8: Slack" output DP-4
-workspace "9: Discord" output DP-4
-workspace "10: Spotify" output DP-4
+workspace "1: Terminal" output HMDI-A-0
+workspace "2: Firefox" output DisplayPort-7
+workspace "3: Dev" output DisplayPort-7
+workspace "4: Prev" output DisplayPort-7
+workspace "5: Firefox2" output HMDI-A-0
+workspace "6: Calender" output DisplayPort-7
+workspace "7: Work Misc" output HMDI-A-0
+workspace "8: Slack" output DisplayPort-7
+workspace "9: Discord" output DisplayPort-7
+workspace "10: Spotify" output DisplayPort-7
 
 # Automatically putting clients on specific workspaces
 assign [class="Slack"] → number "8: Slack"
@@ -183,12 +202,12 @@ for_window [class="Spotify"] move to workspace $ws10
 
 # Automatically starting applications on i3 startup
 # workspace 8
-# exec slack
+exec slack
 # workspace 9
-exec vesktop
+# exec vesktop
 # workspace 10
 exec spotify
-exec nvidia-settings
+#exec nvidia-settings
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -239,11 +258,11 @@ client.placeholder       #6c7086   #1e1e2e #cdd6f4 #6c7086    #6c7086
 client.background        #1e1e2e
 
 #Gaps
-gaps inner 5px
-gaps outer 1px
+gaps inner 10px
+gaps outer 4px
 
 # Wallpaper
-exec_always feh --bg-scale /home/sven/.config/wallpapers/cat_leaves.png
+exec_always feh --bg-scale /home/sven/dotfiles/.config/wallpapers/cat_leaves.png
 
 # Screenshots
 bindsym Shift+Print exec flameshot gui

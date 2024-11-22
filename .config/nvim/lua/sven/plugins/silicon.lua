@@ -60,4 +60,7 @@ return {
 			end,
 		})
 	end,
+	keys = {
+		{ "<leader>sc", "<cmd>Silicon<cr>", desc = "Silicon, Code Screenshot" },
+	},
 }

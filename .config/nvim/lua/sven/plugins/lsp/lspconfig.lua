@@ -19,20 +19,23 @@ return {
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
+			opts.desc = "Restart LSP server"
+			keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
 			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+			keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts) -- show definition, references
 
 			opts.desc = "Go to declaration"
-			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+			keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
 			opts.desc = "Show LSP definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+			keymap.set("n", "<leader>gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
 			opts.desc = "Show LSP implementations"
-			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+			keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
 			opts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+			keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, opts) -- show lsp type definitions
 
 			opts.desc = "See available code actions"
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
@@ -59,6 +62,27 @@ return {
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 			-- set keybinds
 			keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+
+			opts.desc = "Organize Imports"
+			keymap.set("n", "<leader>io", "<Cmd>VtsExec organize_imports<CR>")
+
+			opts.desc = "Add missing Imports"
+			keymap.set("n", "<leader>im", "<Cmd>VtsExec add_missing_imports<CR>")
+
+			opts.desc = "Remove unused imports"
+			keymap.set("n", "<leader>ir", "<Cmd>VtsExec remove_unused_imports<CR>")
+
+			opts.desc = "Sort imports"
+			keymap.set("n", "<leader>is", "<Cmd>VtsExec sort_imports<CR>")
+
+			opts.desc = "Fix all"
+			keymap.set("n", "<leader>Fa", "<Cmd>VtsExec fix_all<CR>")
+
+			opts.desc = "Rename File"
+			keymap.set("n", "<leader>Fr", "<Cmd>VtsExec rename_file<CR>")
+
+			opts.desc = "File references"
+			keymap.set("n", "<leader>Ff", "<Cmd>VtsExec file_references<CR>")
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
@@ -82,7 +106,7 @@ return {
 			.. "/node_modules/@vue/language-server"
 			.. "/node_modules/@vue/typescript-plugin"
 
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			init_options = {
 				plugins = {
 					{
@@ -93,15 +117,55 @@ return {
 				},
 			},
 			filetypes = {
-				"javascript",
-				"typescript",
 				"vue",
 			},
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
+		lspconfig.vtsls.setup({
+			filetypes = {
+				"typescript",
+				"javascript",
+				"typescriptreact",
+				"javascriptreact",
+				"css",
+				"sass",
+				"scss",
+				"vue",
+			},
+			settings = {
+				complete_function_calls = true,
+				vtsls = {
+					enableMoveToFileCodeAction = true,
+					autoUseWorkspaceTsdk = true,
+					experimental = {
+						completion = {
+							enableServerSideFuzzyMatch = true,
+						},
+					},
+				},
+				typescript = {
+					updateImportsOnFileMove = { enabled = "always" },
+					suggest = {
+						completeFunctionCalls = true,
+					},
+					inlayHints = {
+						enumMemberValues = { enabled = true },
+						functionLikeReturnTypes = { enabled = true },
+						parameterNames = { enabled = "literals" },
+						parameterTypes = { enabled = true },
+						propertyDeclarationTypes = { enabled = true },
+						variableTypes = { enabled = false },
+					},
+				},
+			},
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		lspconfig.volar.setup({
+			filetypes = { "vue" },
 			init_options = {
 				vue = {
 					hybridMode = false,

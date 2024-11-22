@@ -7,4 +7,7 @@ return {
 			-- engine = 'ripgrep' is default, but 'astgrep' can be specified
 		})
 	end,
+	keys = {
+		{ "<leader>far", "<cmd>GrugFar<cr>", desc = "Find And Replace" },
+	},
 }

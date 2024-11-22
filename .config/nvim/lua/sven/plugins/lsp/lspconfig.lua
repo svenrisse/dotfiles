@@ -19,6 +19,9 @@ return {
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
+			opts.desc = "Restart LSP server"
+			keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
 			opts.desc = "Show LSP references"
 			keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts) -- show definition, references
 

@@ -3,5 +3,4 @@ return {
 	"tpope/vim-obsession",
 	"tpope/vim-fugitive",
 	"tpope/vim-surround",
-	"letieu/harpoon-lualine",
 }

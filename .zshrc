@@ -87,8 +87,12 @@ source $ZSH/oh-my-zsh.sh
 #
 export GOPATH="$HOME/go"
 path+=$PATH:$GOPATH/bin
+
 export CARGO="$HOME/.cargo/bin"
-export PATH
+path+=$PATH:$CARGO
+
+export RUSTLINGS="$HOME/.cargo/bin/rustlings"
+path+=$PATH:$RUSTLINGS
 
 export PATH
 

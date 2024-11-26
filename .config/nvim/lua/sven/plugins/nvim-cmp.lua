@@ -20,7 +20,7 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		local kind_icons = {
-			Text = "",
+			Text = "󰊄",
 			Method = "",
 			Function = "",
 			Constructor = "",

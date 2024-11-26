@@ -5,7 +5,9 @@ return {
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		-- adapters
 		"nvim-neotest/neotest-jest",
+		{ "fredrikaverpil/neotest-golang", version = "*" },
 	},
 
 	config = function()
@@ -19,6 +21,7 @@ return {
 						return vim.fn.getcwd()
 					end,
 				}),
+				require("neotest-golang")({ runner = "gotestsum" }),
 			},
 			discovery = {
 				enabled = false,
@@ -55,6 +58,14 @@ return {
 			end,
 			desc = "Run Last (Neotest)",
 		},
+		{
+			"<leader>tu",
+			function()
+				require("neotest").run.run_last({ jestCommand = "jest --updateSnapshot " })
+			end,
+			desc = "Run last & update snapshots",
+		},
+
 		{
 			"<leader>ts",
 			function()

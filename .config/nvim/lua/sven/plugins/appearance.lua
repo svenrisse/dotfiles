@@ -67,6 +67,9 @@ return {
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 		},
+		keys = {
+			{ "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+		},
 	},
 	{
 		"karb94/neoscroll.nvim",

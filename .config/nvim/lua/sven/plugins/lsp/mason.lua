@@ -33,12 +33,9 @@ return {
 				"html",
 				"cssls",
 				"tailwindcss",
-				"svelte",
 				"lua_ls",
-				"graphql",
 				"emmet_ls",
 				"prismals",
-				"pyright",
 				"gopls",
 			},
 			-- auto-install configured servers (with lspconfig)
@@ -51,9 +48,6 @@ return {
 				"prettierd",
 				"biome",
 				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
-				"pylint", -- python linter
 				"eslint_d", -- js linter
 				"gofumpt",
 				"goimports",

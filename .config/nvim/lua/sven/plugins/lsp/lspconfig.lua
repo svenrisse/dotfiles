@@ -222,19 +222,19 @@ return {
 			},
 		})
 
-		lspconfig["rust_analyzer"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "rust" },
-			root_dir = util.root_pattern("Cargo.toml"),
-			settings = {
-				["rust_analyzer"] = {
-					cargo = {
-						allFeatures = true,
-					},
-				},
-			},
-		})
+		-- lspconfig["rust_analyzer"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "rust" },
+		-- 	root_dir = util.root_pattern("Cargo.toml"),
+		-- 	settings = {
+		-- 		["rust_analyzer"] = {
+		-- 			cargo = {
+		-- 				allFeatures = true,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({

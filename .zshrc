@@ -78,13 +78,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-#
+
 export GOPATH="$HOME/go"
 path+=$PATH:$GOPATH/bin
 
@@ -93,6 +93,8 @@ path+=$PATH:$CARGO
 
 export RUSTLINGS="$HOME/.cargo/bin/rustlings"
 path+=$PATH:$RUSTLINGS
+
+path+=/home/sven/.local/bin
 
 export PATH
 
@@ -143,3 +145,7 @@ eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

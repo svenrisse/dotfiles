@@ -58,11 +58,6 @@ return {
 			opts.desc = "Show documentation for what is under cursor"
 			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-			opts.desc = "Restart LSP"
-			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-			-- set keybinds
-			keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-
 			opts.desc = "Organize Imports"
 			keymap.set("n", "<leader>io", "<Cmd>VtsExec organize_imports<CR>")
 

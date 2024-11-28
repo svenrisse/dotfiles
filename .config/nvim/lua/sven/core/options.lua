@@ -37,6 +37,7 @@ vim.opt.updatetime = 50
 vim.opt.timeoutlen = 300
 
 vim.lsp.buf.signature_help = false
+vim.diagnostic.config({ virtual_text = false })
 
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)

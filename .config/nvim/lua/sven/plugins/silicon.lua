@@ -61,6 +61,7 @@ return {
 		})
 	end,
 	keys = {
-		{ "<leader>sc", "<cmd>Silicon<cr>", desc = "Silicon, Code Screenshot" },
+		{ "<leader>sc", "<cmd>Silicon<cr>", desc = "Silicon, Code Screenshot", mode = { "n" } },
+		{ "<leader>sc", "<cmd>'<,'>Silicon<cr>", desc = "Silicon, Code Screenshot", mode = { "v" } },
 	},
 }

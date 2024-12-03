@@ -44,6 +44,7 @@ return {
 					"query",
 					"go",
 					"sql",
+					"vue",
 				},
 				incremental_selection = {
 					enable = true,

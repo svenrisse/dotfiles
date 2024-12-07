@@ -80,12 +80,6 @@ return {
 		event = "VeryLazy",
 	},
 	{
-		"j-hui/fidget.nvim",
-		opts = {
-			-- options
-		},
-	},
-	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {

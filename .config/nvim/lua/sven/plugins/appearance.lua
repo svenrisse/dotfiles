@@ -30,6 +30,9 @@ return {
 					-- Show all diagnostics on the cursor line.
 					show_all_diags_on_cursorline = true,
 
+					-- Enable diagnostics on Insert mode. You should also se the `throttle` option to 0, as some artefacts may appear.
+					enable_on_insert = false,
+
 					virt_texts = {
 						priority = 2048,
 					},
@@ -74,10 +77,6 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
 	},
 	{
 		"folke/todo-comments.nvim",

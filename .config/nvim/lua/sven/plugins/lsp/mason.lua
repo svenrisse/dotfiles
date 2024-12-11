@@ -46,12 +46,12 @@ return {
 			ensure_installed = {
 				"prettier",
 				"prettierd",
-				"biome",
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
 				"gofumpt",
 				"goimports",
 				"golines",
+				"delve",
 			},
 		})
 	end,

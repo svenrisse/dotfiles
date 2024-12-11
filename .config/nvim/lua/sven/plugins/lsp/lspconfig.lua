@@ -96,21 +96,24 @@ return {
 			on_attach = on_attach,
 		})
 
-		local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server"):get_install_path()
-			.. "/node_modules/@vue/language-server"
-			.. "/node_modules/@vue/typescript-plugin"
+		local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+		local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
 
 		lspconfig.ts_ls.setup({
 			init_options = {
 				plugins = {
 					{
 						name = "@vue/typescript-plugin",
-						location = vue_typescript_plugin,
+						location = volar_path,
 						languages = { "vue" },
 					},
 				},
 			},
 			filetypes = {
+				"typescript",
+				"javascript",
+				"typescriptreact",
+				"javascriptreact",
 				"vue",
 			},
 			capabilities = capabilities,
@@ -126,7 +129,7 @@ return {
 				"css",
 				"sass",
 				"scss",
-				"vue",
+				--				"vue",
 			},
 			settings = {
 				complete_function_calls = true,
@@ -159,10 +162,36 @@ return {
 		})
 
 		lspconfig.volar.setup({
-			filetypes = { "vue" },
 			init_options = {
 				vue = {
-					hybridMode = false,
+					hybridMode = true,
+				},
+				-- NOTE: This might not be needed. Uncomment if you encounter issues.
+
+				-- typescript = {
+				--   tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+				-- },
+			},
+			settings = {
+				typescript = {
+					inlayHints = {
+						enumMemberValues = {
+							enabled = true,
+						},
+						functionLikeReturnTypes = {
+							enabled = true,
+						},
+						propertyDeclarationTypes = {
+							enabled = true,
+						},
+						parameterTypes = {
+							enabled = true,
+							suppressWhenArgumentMatchesName = true,
+						},
+						variableTypes = {
+							enabled = true,
+						},
+					},
 				},
 			},
 		})

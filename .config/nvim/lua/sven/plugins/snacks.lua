@@ -4,26 +4,19 @@ return {
 	lazy = false,
 	opts = {
 		bigfile = { enabled = true },
-		-- bufdelete = { enabled = true },
 		dashboard = { enabled = true },
-		-- debug = { enabled = true },
+		dim = { enabled = true },
 		git = { enabled = true },
 		gitbrowse = { enabled = true },
 		lazygit = { enable = true },
 		notify = { enabled = true },
-		notifier = {
-			enabled = true,
-			timeout = 3000,
-		},
-		-- profiler = { enabled = true },
+		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		rename = { enabled = true },
-		-- scratch = { enabled = true },
-		-- statuscolumn = { enabled = true },
+		scratch = { enabled = true },
+		-- scroll = { enabled = true }, can't be a$$ed to configure steps to replicate smoothness of neoscroll
 		-- terminal = { enabled = true },
 		toggle = { enabled = true },
-		-- win = { enabled = true },
-		-- words = { enabled = true },
 		styles = {
 			notification = {
 				wo = { wrap = true }, -- Wrap notifications
@@ -32,8 +25,10 @@ return {
 	},
     -- stylua: ignore
     keys = {
-        -- { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-        -- { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+        { "<leader>dime",     function() Snacks.dim() end, desc = "Dim" },
+        { "<leader>dimd",     function() Snacks.dim.disable() end, desc = "turn off Dim" },
+        { "<leader>.",     function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+        { "<leader>S",     function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
         { "<leader>mh",    function() Snacks.notifier.show_history() end, desc = "Notification History" },
         { "<leader>mc",    function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
         -- { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },

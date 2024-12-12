@@ -13,7 +13,10 @@ return {
 	{
 		"dmmulroy/tsc.nvim",
 		config = function()
-			require("tsc").setup({})
+			require("tsc").setup({
+				run_as_monorepo = true,
+				use_diagnostics = true,
+			})
 		end,
 		keys = {
 			{ "<leader>x", "<cmd>TSC<cr>", desc = "Project wide diagnostics (typescript)" },

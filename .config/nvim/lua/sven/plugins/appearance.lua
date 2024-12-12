@@ -12,35 +12,6 @@ return {
 		end,
 	},
 	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "VeryLazy", -- Or `LspAttach`
-		priority = 1000, -- needs to be loaded in first
-		config = function()
-			require("tiny-inline-diagnostic").setup({
-				options = {
-					-- Show the source of the diagnostic.
-					show_source = true,
-
-					-- If multiple diagnostics are under the cursor, display all of them.
-					multiple_diag_under_cursor = true,
-
-					-- Enable diagnostic message on all lines.
-					multilines = true,
-
-					-- Show all diagnostics on the cursor line.
-					show_all_diags_on_cursorline = true,
-
-					-- Enable diagnostics on Insert mode. You should also se the `throttle` option to 0, as some artefacts may appear.
-					enable_on_insert = false,
-
-					virt_texts = {
-						priority = 2048,
-					},
-				},
-			})
-		end,
-	},
-	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
@@ -71,40 +42,12 @@ return {
 				presets = {
 					bottom_search = true, -- use a classic bottom cmdline for search
 					command_palette = true, -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
+					long_message_to_split = false, -- long messages will be sent to a split
 					inc_rename = false, -- enables an input dialog for inc-rename.nvim
 					lsp_doc_border = false, -- add a border to hover docs and signature help
 				},
 			})
 		end,
-	},
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-		keys = {
-			{ "<leader>fT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
-		},
-	},
-	{
-		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup({})
-		end,
-	},
-	{
-		"sphamba/smear-cursor.nvim",
-		opts = {
-			stiffness = 0.8, -- 0.6      [0, 1]
-			trailing_stiffness = 0.6, -- 0.3      [0, 1]
-			trailing_exponent = 0, -- 0.1      >= 0
-			distance_stop_animating = 0.5, -- 0.1      > 0
-			hide_target_hack = false, -- true     boolean
-		},
 	},
 	{
 		"NvChad/nvim-colorizer.lua",

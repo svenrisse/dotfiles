@@ -2,9 +2,8 @@ return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
+		search = { pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]] },
+		highlight = { pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]] },
 	},
 	keys = {
 		{ "<leader>fT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },

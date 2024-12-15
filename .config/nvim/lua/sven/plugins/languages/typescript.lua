@@ -28,4 +28,10 @@ return {
 		event = "VeryLazy",
 		enabled = vim.fn.has("nvim-0.10.0") == 1,
 	},
+	{
+		"dmmulroy/ts-error-translator.nvim",
+		config = function()
+			require("ts-error-translator").setup()
+		end,
+	},
 }

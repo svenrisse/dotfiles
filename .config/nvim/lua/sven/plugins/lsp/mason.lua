@@ -52,6 +52,7 @@ return {
 				"goimports",
 				"golines",
 				"delve",
+				"js-debug-adapter",
 			},
 		})
 	end,

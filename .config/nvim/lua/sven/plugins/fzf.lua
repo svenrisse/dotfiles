@@ -3,10 +3,37 @@ return {
 	-- optional for icon support
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
+		local config = require("fzf-lua.config")
+		local actions = require("fzf-lua.actions")
+
+		-- Quickfix
+		config.defaults.keymap.fzf["ctrl-q"] = "select-all+accept"
+		config.defaults.keymap.fzf["ctrl-u"] = "half-page-up"
+		config.defaults.keymap.fzf["ctrl-d"] = "half-page-down"
+		config.defaults.keymap.fzf["ctrl-x"] = "jump"
+		config.defaults.keymap.fzf["ctrl-f"] = "preview-page-down"
+		config.defaults.keymap.fzf["ctrl-b"] = "preview-page-up"
+		config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
+		config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
+
 		require("fzf-lua").setup({
+			fzf_opts = {
+				["--no-scrollbar"] = true,
+			},
 			winopts = {
 				height = 0.95,
 				width = 0.95,
+			},
+			files = {
+				cwd_prompt = false,
+				actions = {
+					["ctrl-h"] = { actions.toggle_hidden },
+				},
+			},
+			grep = {
+				actions = {
+					["ctrl-h"] = { actions.toggle_hidden },
+				},
 			},
 		})
 	end,
@@ -27,6 +54,7 @@ return {
 		{ "<leader>fsl", function() require("fzf-lua").live_grep_resume() end, desc = "Find Grep (last)", },
 		{ "<leader>fsw", function() require("fzf-lua").grep_cword() end, desc = "Find Grep (word)", },
 		{ "<leader>fsW", function() require("fzf-lua").grep_cWORD() end, desc = "Find Grep (WORD)", },
+		{ "<leader>fsv", function() require("fzf-lua").grep_visual() end, desc = "Find Grep (Visual)", },
 
 		{ "<leader>fg", "", desc = "+fzf git" },
 		{ "<leader>fgf", function() require("fzf-lua").git_files() end, desc = "Find Git Files", },
@@ -34,19 +62,12 @@ return {
 		{ "<leader>fgb", function() require("fzf-lua").git_blame() end, desc = "Find Git Blame", },
 
 		{ "<leader>fl", "", desc = "+fzf lsp" },
-		{ "<leader>flr", function() require("fzf-lua").lsp_references() end, desc = "Find References", },
-		{ "<leader>fld", function() require("fzf-lua").lsp_definitions() end, desc = "Find Definitions", },
-		{ "<leader>flD", function() require("fzf-lua").lsp_declarations() end, desc = "Find Declarations", },
-		{ "<leader>flt", function() require("fzf-lua").lsp_typedefs() end, desc = "Find Type Definition", },
-		{ "<leader>fli", function() require("fzf-lua").lsp_implementations() end, desc = "Find Implementations", },
 		{ "<leader>fls", "", desc = "+fzf lsp symbols" },
 		{ "<leader>flsd", function() require("fzf-lua").lsp_document_symbols() end, desc = "Find Document Symbols", },
 		{ "<leader>flsw", function() require("fzf-lua").lsp_workspace_symbols() end, desc = "Find Incoming Calls", },
-		{ "<leader>flc", "", desc = "+fzf lsp calls" },
-		{ "<leader>flci", function() require("fzf-lua").lsp_incoming_calls() end, desc = "Find Outgoing Calls", },
-		{ "<leader>flco", function() require("fzf-lua").lsp_outgoing_calls() end, desc = "Find Code Actions", },
-		{ "<leader>flx", "", desc = "+fzf lsp diagnostics" },
-		{ "<leader>flxd", function() require("fzf-lua").lsp_document_diagnostics() end, desc = "Find Document Diagnostics", },
-		{ "<leader>flxw", function() require("fzf-lua").lsp_workspace_diagnostics() end, desc = "Find Workspace Diagnostics", },
+		{ "<leader>fli", function() require("fzf-lua").lsp_incoming_calls() end, desc = "Find Outgoing Calls", },
+		{ "<leader>flo", function() require("fzf-lua").lsp_outgoing_calls() end, desc = "Find Code Actions", },
+		{ "<leader>fld", function() require("fzf-lua").lsp_document_diagnostics() end, desc = "Find Document Diagnostics", },
+		{ "<leader>flw", function() require("fzf-lua").lsp_workspace_diagnostics() end, desc = "Find Workspace Diagnostics", },
 	},
 }

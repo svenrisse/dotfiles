@@ -114,9 +114,8 @@ alias tc="rm -rf ~/.local/share/tmux/resurrect/"
 alias lg='lazygit'
 
 # wtf stuff
-alias vs="openvpn3 session-start --config ~/Downloads/ubuntu_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_[Frankfurt].ovpn"
-alias vc="openvpn3 session-manage --config ~/Downloads/ubuntu_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_[Frankfurt].ovpn"
-
+alias vs="openvpn3 session-start --config ~/Downloads/ubuntu_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_\[Frankfurt\].ovpn"
+alias vc="openvpn3 session-manage --config ~/Downloads/ubuntu_sven_risse@wtfoxtrot_de@wtfoxtrot.openvpn.com_\[Frankfurt\].ovpn --disconnect"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

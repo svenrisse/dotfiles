@@ -30,20 +30,6 @@ return {
 				desc = "harpoon quick menu",
 			},
 			{
-				"<leader>hn",
-				function()
-					require("harpoon"):list():next()
-				end,
-				desc = "harpoon next mark",
-			},
-			{
-				"<leader>hp",
-				function()
-					require("harpoon"):list():prev()
-				end,
-				desc = "harpoon prev mark",
-			},
-			{
 				"<leader>1",
 				function()
 					require("harpoon"):list():select(1)
@@ -70,20 +56,6 @@ return {
 					require("harpoon"):list():select(4)
 				end,
 				desc = "harpoon to file 4",
-			},
-			{
-				"<leader>5",
-				function()
-					require("harpoon"):list():select(5)
-				end,
-				desc = "harpoon to file 5",
-			},
-			{
-				"<leader>6",
-				function()
-					require("harpoon"):list():select(6)
-				end,
-				desc = "harpoon to file 6",
 			},
 		},
 	},

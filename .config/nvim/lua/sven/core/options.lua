@@ -1,4 +1,4 @@
-local opt = vim.opt -- for conciseness
+local opt = vim.opt
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
 local autocmd = vim.api.nvim_create_autocmd
@@ -9,12 +9,12 @@ opt.statuscolumn = "%s %l %r "
 opt.number = true
 
 -- tabs & indentation
-opt.tabstop = 4 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 4 -- 2 spaces for indent width
+opt.tabstop = 4
+opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
-vim.g.rust_recommended_style = false
+-- vim.g.rust_recommended_style = false
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping

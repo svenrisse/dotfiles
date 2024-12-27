@@ -21,6 +21,9 @@ return {
 				relativenumber = true,
 				adaptive_size = true,
 			},
+			update_focused_file = {
+				enable = true,
+			},
 			-- change folder arrow icons
 			renderer = {
 				indent_markers = {
@@ -57,6 +60,5 @@ return {
 		local keymap = vim.keymap -- for conciseness
 
 		keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-		keymap.set("n", "<leader>E", "<cmd>NvimTreeFindFile<CR>", { desc = "file explorer at current file" })
 	end,
 }

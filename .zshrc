@@ -88,12 +88,6 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH="$HOME/go"
 path+=$PATH:$GOPATH/bin
 
-export CARGO="$HOME/.cargo/bin"
-path+=$PATH:$CARGO
-
-export RUSTLINGS="$HOME/.cargo/bin/rustlings"
-path+=$PATH:$RUSTLINGS
-
 path+=/home/sven/.local/bin
 
 export PATH

@@ -4,6 +4,7 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+		local harpoon_files = require("harpoon_files")
 
 		-- configure lualine with modified theme
 		lualine.setup({
@@ -18,11 +19,12 @@ return {
 				lualine_c = {
 					{ "filename", path = 1 },
 					"%=",
-					{
-						"harpoon2",
-						indicators = { "1", "2", "3", "4", "5", "6" },
-						active_indicators = { "-1-", "-2-", "-3-", "-4-", "-5-", "-6-" },
-					},
+					-- {
+					-- 	"harpoon2",
+					-- 	indicators = { "1", "2", "3", "4", "5", "6" },
+					-- 	active_indicators = { "-1-", "-2-", "-3-", "-4-", "-5-", "-6-" },
+					-- },
+					{ harpoon_files.lualine_component },
 				},
 				lualine_x = {
 					{

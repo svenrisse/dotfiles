@@ -1,5 +1,6 @@
 return {
-	{ "letieu/harpoon-lualine" },
+	--	{ "letieu/harpoon-lualine" },
+	{ "kiennt63/harpoon-files.nvim" },
 	{
 		"theprimeagen/harpoon",
 		branch = "harpoon2",

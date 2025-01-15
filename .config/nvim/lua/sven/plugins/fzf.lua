@@ -46,6 +46,11 @@ return {
 					syntax_limit_b = 1024 * 100, -- 100KB
 				},
 			},
+			keymap = {
+				fzf = {
+					["ctrl-q"] = "select-all+accept",
+				},
+			},
 		})
 	end,
     -- stylua: ignore

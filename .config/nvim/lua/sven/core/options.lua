@@ -1,7 +1,4 @@
 local opt = vim.opt
-local augroup = vim.api.nvim_create_augroup
-local yank_group = augroup("HighlightYank", {})
-local autocmd = vim.api.nvim_create_autocmd
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -59,14 +56,3 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
-
-autocmd("TextYankPost", {
-	group = yank_group,
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = "IncSearch",
-			timout = 100,
-		})
-	end,
-})

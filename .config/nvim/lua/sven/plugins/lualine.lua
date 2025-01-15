@@ -17,24 +17,22 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "diagnostics" },
 				lualine_c = {
-					{ "filename", path = 1 },
-					"%=",
-					-- {
-					-- 	"harpoon2",
-					-- 	indicators = { "1", "2", "3", "4", "5", "6" },
-					-- 	active_indicators = { "-1-", "-2-", "-3-", "-4-", "-5-", "-6-" },
-					-- },
+					-- { "filename", path = 1 },
+					-- "%=",
 					{ harpoon_files.lualine_component },
 				},
-				lualine_x = {
+				lualine_x = {},
+				lualine_y = {
 					{
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
 						color = { fg = "#ff9e64" },
 					},
 				},
-				lualine_y = { "diff" },
-				lualine_z = { "searchcount" },
+				lualine_z = {
+
+					{ "filename", path = 1 },
+				},
 			},
 		})
 	end,

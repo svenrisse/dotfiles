@@ -5,12 +5,20 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = true },
-		dim = { enabled = true },
 		git = { enabled = true },
 		gitbrowse = { enabled = true },
 		lazygit = { enable = true },
-		--notify = { enabled = true },
-		--notifier = { enabled = true },
+		picker = {
+			win = {
+				-- input window
+				input = {
+					keys = {
+						["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+						["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+					},
+				},
+			},
+		},
 		quickfile = { enabled = true },
 		rename = { enabled = true },
 		scratch = { enabled = true },
@@ -25,8 +33,6 @@ return {
 	},
     -- stylua: ignore start
     keys = {
-        { "<leader>dime",     function() Snacks.dim() end, desc = "Dim" },
-        { "<leader>dimd",     function() Snacks.dim.disable() end, desc = "turn off Dim" },
         { "<leader>.",     function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
         { "<leader>S",     function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
         { "<leader>rf",    function() Snacks.rename.rename_file() end, desc = "Rename File" },
@@ -36,6 +42,29 @@ return {
         { "<leader>gg",    function() Snacks.lazygit() end, desc = "Lazygit" },
         { "<leader>gl",    function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
         { "<leader>T",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+        -- find
+		{ "<leader>f", "", desc = "+find", mode = { "n", "v" } },
+        { "<leader>ff", function() Snacks.picker.smart() end, desc = "Find Files" },
+        { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+        -- git
+        { "<leader>fg", function() Snacks.picker.git_status() end, desc = "Git Status" },
+        -- Grep
+        { "<leader>fs", function() Snacks.picker.grep() end, desc = "Grep" },
+        { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+        -- search
+        { "<leader>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
+        { "<leader>fC", function() Snacks.picker.commands() end, desc = "Commands" },
+        { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+        { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
+        { "<leader>fq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+        { "<leader>fz", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+        { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
+        -- LSP
+        { "<leader>gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+        { "<leader>gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+        { "<leader>gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+        { "<leader>gt", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+        { "<leader>gs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     },
 	init = function()
 		vim.api.nvim_create_autocmd("User", {

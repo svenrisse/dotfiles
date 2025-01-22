@@ -260,8 +260,8 @@ client.placeholder       #6c7086   #1e1e2e #cdd6f4 #6c7086    #6c7086
 client.background        #1e1e2e
 
 #Gaps
-gaps inner 10px
-gaps outer 4px
+gaps inner 5px
+gaps outer 0px
 
 # Wallpaper
 exec_always feh --bg-scale /home/sven/dotfiles/.config/wallpapers/cat_leaves.png

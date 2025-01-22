@@ -16,13 +16,6 @@ return {
 
 			keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
-			-- stylua: ignore start
-			keymap.set("n", "<leader>gd", "<cmd>FzfLua lsp_definitions     jump_to_single_result=true ignore_current_line=true<CR>", {desc = "Goto Definitions"})
-            keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references      jump_to_single_result=true ignore_current_line=true<CR>", {desc = "Show LSP references", nowait= true})
-			keymap.set("n", "<leader>gi", "<cmd>FzfLua lsp_implementations jump_to_single_result=true ignore_current_line=true<CR>", {desc = "Goto Implementations"})
-			keymap.set("n", "<leader>gt", "<cmd>FzfLua lsp_typedefs        jump_to_single_result=true ignore_current_line=true<cr>", {desc = "Goto Type Definition"})
-			-- stylua: ignore end
-
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Smart Rename" })
 
 			keymap.set("n", "<C-X>", vim.diagnostic.goto_prev, { desc = "Goto previous diagnostic" })

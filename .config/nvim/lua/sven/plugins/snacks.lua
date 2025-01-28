@@ -23,7 +23,6 @@ return {
 		rename = { enabled = true },
 		scratch = { enabled = true },
 		-- scroll = { enabled = true }, can't be a$$ed to configure steps to replicate smoothness of neoscroll
-		terminal = { enabled = true },
 		toggle = { enabled = true },
 		styles = {
 			notification = {
@@ -36,11 +35,10 @@ return {
         { "<leader>.",     function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
         { "<leader>S",     function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
         { "<leader>rf",    function() Snacks.rename.rename_file() end, desc = "Rename File" },
-        { "<leader>lB",    function() Snacks.gitbrowse() end, desc = "Git Browse" },
-        { "<leader>lb",    function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
-        { "<leader>lL",    function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
-        { "<leader>ll",    function() Snacks.lazygit() end, desc = "Lazygit" },
-        { "<leader>T",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+        { "<leader>gB",    function() Snacks.gitbrowse() end, desc = "Git Browse" },
+        { "<leader>gb",    function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
+        { "<leader>gl",    function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
+        { "<leader>gg",    function() Snacks.lazygit() end, desc = "Lazygit" },
         -- find
 		{ "<leader>f", "", desc = "+find", mode = { "n", "v" } },
         { "<leader>ff", function() Snacks.picker.smart() end, desc = "Find Files" },

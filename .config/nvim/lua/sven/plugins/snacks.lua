@@ -1,3 +1,4 @@
+-- TODO: replace neoscoll and indent-blankline with snacks modules when viable
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -19,10 +20,8 @@ return {
 				},
 			},
 		},
-		quickfile = { enabled = true },
 		rename = { enabled = true },
 		scratch = { enabled = true },
-		-- scroll = { enabled = true }, can't be a$$ed to configure steps to replicate smoothness of neoscroll
 		toggle = { enabled = true },
 		styles = {
 			notification = {

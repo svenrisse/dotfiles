@@ -99,7 +99,7 @@ alias pc="sudo pacman -Qdtq | sudo pacman -Rns -"
 alias cd="z"
 alias ls="eza --git --icons=auto -a --color=always"
 alias fzf="fzf --bind 'enter:become(nvim {})' --preview 'bat {}'"
-alias wifi="bash ~/.local/bin/rofi-wifi-menu/rofi-wifi-menu.sh"
+alias wifi="bash ~/.local/bin/rofi-wifi-menu.sh"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias ta="tmux attach -t"

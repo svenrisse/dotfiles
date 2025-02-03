@@ -1,4 +1,4 @@
--- TODO: replace neoscoll and indent-blankline with snacks modules when viable
+-- TODO: replace indent-blankline with snacks modules when viable
 return {
 	"folke/snacks.nvim",
 	priority = 1000,

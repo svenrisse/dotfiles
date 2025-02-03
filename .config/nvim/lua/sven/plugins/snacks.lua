@@ -4,11 +4,12 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
-		bigfile = { enabled = true },
-		dashboard = { enabled = true },
-		git = { enabled = true },
-		gitbrowse = { enabled = true },
-		lazygit = { enable = true },
+		bigfile = {},
+		dashboard = {},
+		explorer = {},
+		git = {},
+		gitbrowse = {},
+		lazygit = {},
 		picker = {
 			win = {
 				-- input window
@@ -19,10 +20,15 @@ return {
 					},
 				},
 			},
+			sources = {
+				explorer = {
+					layout = { layout = { position = "right" } },
+				},
+			},
 		},
-		rename = { enabled = true },
-		scratch = { enabled = true },
-		toggle = { enabled = true },
+		rename = {},
+		scratch = {},
+		toggle = {},
 		styles = {
 			notification = {
 				wo = { wrap = true }, -- Wrap notifications
@@ -38,6 +44,7 @@ return {
         { "<leader>gb",    function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
         { "<leader>gl",    function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
         { "<leader>gg",    function() Snacks.lazygit() end, desc = "Lazygit" },
+        { "<leader>e",    function() Snacks.explorer.open() end, desc = "Explorer" },
         -- find
 		{ "<leader>f", "", desc = "+find", mode = { "n", "v" } },
         { "<leader>ff", function() Snacks.picker.smart() end, desc = "Find Files" },

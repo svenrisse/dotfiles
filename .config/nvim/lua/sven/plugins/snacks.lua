@@ -9,6 +9,7 @@ return {
 		explorer = {},
 		git = {},
 		gitbrowse = {},
+		image = {},
 		lazygit = {},
 		picker = {
 			win = {

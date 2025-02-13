@@ -6,26 +6,33 @@ return {
 	opts = {
 		bigfile = {},
 		dashboard = {},
-		explorer = {},
+		--explorer = {},
 		git = {},
 		gitbrowse = {},
+		input = {},
 		image = {},
 		lazygit = {},
 		picker = {
+			formatters = {
+				file = {
+					truncate = 80, -- truncate the file path to (roughly) this length
+				},
+			},
 			win = {
 				-- input window
 				input = {
 					keys = {
+						["<Esc>"] = { "close", mode = { "n", "i" } }, -- to close the picker on ESC instead of going to normal mode
 						["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
 						["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
 					},
 				},
 			},
-			sources = {
-				explorer = {
-					layout = { layout = { position = "right" } },
-				},
-			},
+			-- sources = {
+			-- 	explorer = {
+			-- 		layout = { layout = { position = "right" } },
+			-- 	},
+			-- },
 		},
 		rename = {},
 		scratch = {},

@@ -50,85 +50,19 @@ return {
 				},
 			},
 			filetypes = {
+				"typescript",
+				"javascript",
+				"typescriptreact",
+				"javascriptreact",
 				"vue",
 			},
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig.vtsls.setup({
-			filetypes = {
-				"typescript",
-				"javascript",
-				"typescriptreact",
-				"javascriptreact",
-				"css",
-				"sass",
-				"scss",
-				--				"vue",
-			},
-			settings = {
-				complete_function_calls = true,
-				vtsls = {
-					enableMoveToFileCodeAction = true,
-					autoUseWorkspaceTsdk = true,
-					experimental = {
-						completion = {
-							enableServerSideFuzzyMatch = true,
-						},
-					},
-				},
-				typescript = {
-					updateImportsOnFileMove = { enabled = "always" },
-					suggest = {
-						completeFunctionCalls = true,
-					},
-					inlayHints = {
-						enumMemberValues = { enabled = true },
-						functionLikeReturnTypes = { enabled = true },
-						parameterNames = { enabled = "literals" },
-						parameterTypes = { enabled = true },
-						propertyDeclarationTypes = { enabled = true },
-						variableTypes = { enabled = false },
-					},
-				},
-			},
+		lspconfig.volar.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
-
-		lspconfig.volar.setup({
-			init_options = {
-				vue = {
-					hybridMode = true,
-				},
-				-- NOTE: This might not be needed. Uncomment if you encounter issues.
-				-- typescript = {
-				--   tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
-				-- },
-			},
-			settings = {
-				typescript = {
-					inlayHints = {
-						enumMemberValues = {
-							enabled = true,
-						},
-						functionLikeReturnTypes = {
-							enabled = true,
-						},
-						propertyDeclarationTypes = {
-							enabled = true,
-						},
-						parameterTypes = {
-							enabled = true,
-							suppressWhenArgumentMatchesName = true,
-						},
-						variableTypes = {
-							enabled = true,
-						},
-					},
-				},
-			},
 		})
 
 		lspconfig["cssls"].setup({

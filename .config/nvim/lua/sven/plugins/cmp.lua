@@ -1,138 +1,54 @@
 return {
-	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
-	dependencies = {
-		"hrsh7th/cmp-buffer", -- source for text in buffer
-		"hrsh7th/cmp-path", -- source for file system paths
-		"L3MON4D3/LuaSnip", -- snippet engine
-		"saadparwaiz1/cmp_luasnip", -- for autocompletion
-		"rafamadriz/friendly-snippets", -- useful snippets
-		"onsails/lspkind.nvim", -- vs-code like pictograms
+	"saghen/blink.cmp",
+	dependencies = "rafamadriz/friendly-snippets",
+
+	version = "*",
+
+	---@module 'blink.cmp'
+	---@type blink.cmp.Config
+	opts = {
+		-- 'default' for mappings similar to built-in completion
+		-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+		-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+		keymap = { preset = "super-tab" },
+
+		appearance = {
+			use_nvim_cmp_as_default = false,
+			nerd_font_variant = "mono",
+		},
+
+		completion = {
+			menu = {
+				border = "single",
+				draw = {
+					columns = { { "kind_icon" }, { "label", gap = 1 } },
+					components = {
+						label = {
+							text = function(ctx)
+								return require("colorful-menu").blink_components_text(ctx)
+							end,
+							highlight = function(ctx)
+								return require("colorful-menu").blink_components_highlight(ctx)
+							end,
+						},
+					},
+				},
+			},
+			documentation = { window = { border = "single" }, auto_show = true, auto_show_delay_ms = 100 },
+		},
+
+		signature = { window = { border = "single" } },
+
+		sources = {
+			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			providers = {
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
+			},
+		},
 	},
-	config = function()
-		local cmp = require("cmp")
-
-		local luasnip = require("luasnip")
-
-		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-		require("luasnip.loaders.from_vscode").lazy_load()
-
-		local kind_icons = {
-			Text = "󰊄",
-			Method = "",
-			Function = "",
-			Constructor = "",
-			Field = "",
-			Variable = "",
-			Class = "",
-			Interface = "",
-			Module = "󰅩",
-			Property = "",
-			Unit = "",
-			Value = "",
-			Enum = "",
-			Keyword = "",
-			Snippet = "",
-			Color = "",
-			File = "",
-			Reference = "",
-			Folder = "",
-			EnumMember = "",
-			Constant = "",
-			Struct = "",
-			Event = "",
-			Operator = "",
-			TypeParameter = "󰊄",
-		}
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-k>"] = cmp.mapping.select_prev_item(),
-				["<C-j>"] = cmp.mapping.select_next_item(),
-				["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-				["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-				["<C-e>"] = cmp.mapping({
-					i = cmp.mapping.abort(),
-					c = cmp.mapping.close(),
-				}),
-				-- Accept currently selected item. If none selected, `select` first item.
-				-- Set `select` to `false` to only confirm explicitly selected items.
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.expand_or_locally_jumpable() then
-						luasnip.expand_or_jump()
-					else
-						fallback()
-					end
-				end, {
-					"i",
-					"s",
-				}),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.jumpable(-1) then
-						luasnip.jump(-1)
-					else
-						fallback()
-					end
-				end, {
-					"i",
-					"s",
-				}),
-			}),
-			formatting = {
-				fields = { "kind", "abbr", "menu" },
-				format = function(entry, vim_item)
-					local highlights_info = require("colorful-menu").cmp_highlights(entry)
-
-					-- if highlight_info==nil, which means missing ts parser, let's fallback to use default `vim_item.abbr`.
-					-- What this plugin offers is two fields: `vim_item.abbr_hl_group` and `vim_item.abbr`.
-					if highlights_info ~= nil then
-						vim_item.abbr_hl_group = highlights_info.highlights
-						vim_item.abbr = highlights_info.text
-					end
-
-					vim_item.kind = kind_icons[vim_item.kind]
-
-					vim_item.menu = ({
-						nvim_lsp = "",
-						nvim_lua = "",
-						luasnip = "",
-						buffer = "",
-						path = "",
-						emoji = "",
-					})[entry.source.name]
-
-					return vim_item
-				end,
-			},
-			sources = {
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "nvim_lua" },
-				{ name = "path" },
-				{ name = "buffer" },
-				{ name = "treesitter" },
-			},
-			confirm_opts = {
-				behavior = cmp.ConfirmBehavior.Replace,
-				select = false,
-			},
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-			-- sources for autocompletion
-			-- configure lspkind for vs-code like pictograms in completion menu
-		})
-	end,
+	opts_extend = { "sources.default" },
 }

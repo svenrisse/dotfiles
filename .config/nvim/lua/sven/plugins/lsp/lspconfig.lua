@@ -8,7 +8,6 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local util = require("lspconfig/util")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
 
 		local on_attach = function()
@@ -22,7 +21,7 @@ return {
 			keymap.set("n", "<C-x>", vim.diagnostic.goto_next, { desc = "Goto next diagnostic" })
 		end
 		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

@@ -13,7 +13,7 @@ keymap.set("n", "<C-Down>", "<C-w>j")
 keymap.set("n", "<C-Up>", "<C-w>k")
 keymap.set("n", "<C-Right>", "<C-w>l")
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "clear search highlight" })
+keymap.set("n", "<ESC>", ":nohl<CR>", { desc = "clear search highlight" })
 
 keymap.set("n", "x", '"_x', { desc = "delete single character without copying into register" })
 

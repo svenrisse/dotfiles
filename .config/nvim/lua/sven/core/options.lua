@@ -2,7 +2,6 @@ local opt = vim.opt
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
-opt.statuscolumn = "%s %l %r "
 opt.number = true
 
 -- tabs & indentation
@@ -11,7 +10,6 @@ opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
--- vim.g.rust_recommended_style = false
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
@@ -34,7 +32,7 @@ vim.opt.updatetime = 50
 vim.opt.timeoutlen = 300
 
 vim.lsp.buf.signature_help = false
-vim.diagnostic.config({ virtual_text = false })
+--vim.diagnostic.config({ virtual_text = false })
 
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
@@ -47,8 +45,14 @@ vim.opt.cmdheight = 0
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
--- clipboard
-opt.clipboard = "unnamedplus"
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+vim.schedule(function()
+	vim.opt.clipboard = "unnamedplus"
+end)
+
+-- Save undo history
+vim.opt.undofile = true
 
 -- split windows
 opt.splitright = true -- split vertical window to the right

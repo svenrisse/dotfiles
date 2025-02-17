@@ -31,11 +31,6 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		lspconfig["html"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
 		local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
 		local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
 
@@ -65,34 +60,39 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["cssls"].setup({
+		lspconfig.html.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig.cssls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "css", "vue" },
 		})
 
-		lspconfig["tailwindcss"].setup({
+		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig["prismals"].setup({
+		lspconfig.prismals.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig["emmet_ls"].setup({
+		lspconfig.emmet_ls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "vue" },
 		})
 
-		lspconfig["pyright"].setup({
+		lspconfig.pyright.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig["gopls"].setup({
+		lspconfig.gopls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -109,7 +109,7 @@ return {
 			},
 		})
 
-		lspconfig["lua_ls"].setup({
+		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {

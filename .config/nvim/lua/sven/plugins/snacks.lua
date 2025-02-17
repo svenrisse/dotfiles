@@ -52,7 +52,6 @@ return {
         { "<leader>gb",    function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
         { "<leader>gl",    function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
         { "<leader>gg",    function() Snacks.lazygit() end, desc = "Lazygit" },
-        { "<leader>e",    function() Snacks.explorer.open() end, desc = "Explorer" },
         -- find
 		{ "<leader>f", "", desc = "+find", mode = { "n", "v" } },
         { "<leader>ff", function() Snacks.picker.smart() end, desc = "Find Files" },
@@ -66,7 +65,7 @@ return {
         { "<leader>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>fC", function() Snacks.picker.commands() end, desc = "Commands" },
         { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
-        { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
+        { "<leader>fR", function() Snacks.picker.resume() end, desc = "Resume" },
         { "<leader>fq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
         { "<leader>fz", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
         { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
@@ -77,6 +76,7 @@ return {
         { "<leader>gt", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
         { "<leader>gs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     },
+	-- stylua: ignore end
 	init = function()
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",

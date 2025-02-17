@@ -63,6 +63,7 @@ return {
 		lspconfig.html.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "html" },
 		})
 
 		lspconfig.cssls.setup({

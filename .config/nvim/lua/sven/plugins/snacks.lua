@@ -15,7 +15,7 @@ return {
 		picker = {
 			formatters = {
 				file = {
-					truncate = 80, -- truncate the file path to (roughly) this length
+					truncate = 80,
 				},
 			},
 			win = {
@@ -39,7 +39,7 @@ return {
 		toggle = {},
 		styles = {
 			notification = {
-				wo = { wrap = true }, -- Wrap notifications
+				wo = { wrap = true },
 			},
 		},
 	},
@@ -81,7 +81,6 @@ return {
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
 			callback = function()
-				-- Create some toggle mappings
 				Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
 				Snacks.toggle.option("relativenumber", { name = "relative numbers" }):map("<leader>nr")
 			end,

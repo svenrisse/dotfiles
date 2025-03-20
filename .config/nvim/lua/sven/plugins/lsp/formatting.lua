@@ -5,7 +5,7 @@ return {
 	opts = {
 		formatters_by_ft = {
 			javascript = { "prettierd" },
-			ypescript = { "prettierd" },
+			typescript = { "prettierd" },
 			javascriptreact = { "prettierd" },
 			typescriptreact = { "prettierd" },
 			vue = { "prettierd" },

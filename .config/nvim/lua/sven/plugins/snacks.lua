@@ -45,7 +45,7 @@ return {
 	},
     -- stylua: ignore start
     keys = {
-         { "<leader>.",     function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+        { "<leader>.",     function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
         { "<leader>S",     function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
         { "<leader>rf",    function() Snacks.rename.rename_file() end, desc = "Rename File" },
         { "<leader>gB",    function() Snacks.gitbrowse() end, desc = "Git Browse" },
@@ -53,7 +53,7 @@ return {
         { "<leader>gl",    function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
         { "<leader>gg",    function() Snacks.lazygit() end, desc = "Lazygit" },
         -- find
-		{ "<leader>f", "", desc = "+find", mode = { "n", "v" } },
+  		{ "<leader>f", "", desc = "+find", mode = { "n", "v" } },
         { "<leader>ff", function() Snacks.picker.smart() end, desc = "Find Files" },
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
         -- git

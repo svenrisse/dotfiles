@@ -16,7 +16,7 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "diagnostics" },
 				lualine_c = {},
-				lualine_x = {},
+				lualine_x = { "lsp_status" },
 				lualine_y = {
 					{
 						lazy_status.updates,

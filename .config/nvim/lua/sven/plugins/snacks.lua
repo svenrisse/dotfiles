@@ -74,7 +74,6 @@ return {
         { "<leader>gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
         { "<leader>gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
         { "<leader>gt", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
-        { "<leader>gs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     },
 	-- stylua: ignore end
 	init = function()

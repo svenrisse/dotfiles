@@ -59,6 +59,14 @@ return {
 			desc = "Run Last (Neotest)",
 		},
 		{
+			"<leader>ta",
+			function()
+				require("neotest").run.attach()
+			end,
+			desc = "Run & Attach (Neotest)",
+		},
+
+		{
 			"<leader>tu",
 			function()
 				require("neotest").run.run_last({ jestCommand = "jest --updateSnapshot " })

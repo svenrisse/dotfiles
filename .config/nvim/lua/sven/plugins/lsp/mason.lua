@@ -47,6 +47,7 @@ return {
 				"prettier",
 				"prettierd",
 				"stylua", -- lua formatter
+				"eslint", -- js linter
 				"eslint_d", -- js linter
 				"gofumpt",
 				"goimports",

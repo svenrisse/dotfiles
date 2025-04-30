@@ -1,5 +1,8 @@
+gui:
+  showIcons: true
+  nerdFontsVersion: "3"
 customCommands:
-  - key: '<c-P>'
-    context: 'global'
-    command: 'git push -f --no-verify'
-    description: 'Push & Skip Pre-Push-Hooks'
+  - key: "<c-P>"
+    context: "global"
+    command: "git push -f --no-verify"
+    description: "Push & Skip Pre-Push-Hooks"

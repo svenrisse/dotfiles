@@ -15,8 +15,8 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "diagnostics" },
-				lualine_c = {},
-				lualine_x = { "lsp_status" },
+				lualine_c = { "searchcount" },
+				lualine_x = {},
 				lualine_y = {
 					{
 						lazy_status.updates,

@@ -13,7 +13,7 @@ return {
 		local on_attach = function()
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP Server" })
 
-			keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+			--keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Smart Rename" })
 
@@ -60,6 +60,11 @@ return {
 			on_attach = on_attach,
 		})
 
+		lspconfig.eslint.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		lspconfig.html.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -75,6 +80,7 @@ return {
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "css", "vue", "typescriptreact" },
 		})
 
 		lspconfig.prismals.setup({

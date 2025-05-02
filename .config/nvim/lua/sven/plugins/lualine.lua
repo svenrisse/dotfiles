@@ -1,6 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "AndreM222/copilot-lualine" },
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
@@ -16,7 +16,7 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "diagnostics" },
 				lualine_c = { "searchcount" },
-				lualine_x = {},
+				lualine_x = { { "copilot", show_colors = true } },
 				lualine_y = {
 					{
 						lazy_status.updates,

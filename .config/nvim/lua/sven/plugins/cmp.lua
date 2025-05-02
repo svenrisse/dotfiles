@@ -1,140 +1,89 @@
 return {
-	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
-	dependencies = {
-		"hrsh7th/cmp-buffer", -- source for text in buffer
-		"hrsh7th/cmp-path", -- source for file system paths
-		"hrsh7th/cmp-nvim-lsp-signature-help",
-		"L3MON4D3/LuaSnip", -- snippet engine
-		"saadparwaiz1/cmp_luasnip", -- for autocompletion
-		"rafamadriz/friendly-snippets", -- useful snippets
-		"onsails/lspkind.nvim", -- vs-code like pictograms
+	"saghen/blink.cmp",
+	dependencies = { "rafamadriz/friendly-snippets", "giuxtaposition/blink-cmp-copilot" },
+	version = "1.*",
+	opts = {
+		-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+		-- 'super-tab' for mappings similar to vscode (tab to accept)
+		-- 'enter' for enter to accept
+		-- 'none' for no mappings
+		--
+		-- All presets have the following mappings:
+		-- C-space: Open menu or open docs if already open
+		-- C-n/C-p or Up/Down: Select next/previous item
+		-- C-e: Hide menu
+		-- C-k: Toggle signature help (if signature.enabled = true)
+		--
+		-- See :h blink-cmp-config-keymap for defining your own keymap
+		keymap = { preset = "super-tab" },
+
+		appearance = {
+			nerd_font_variant = "mono",
+			kind_icons = {
+				Copilot = "",
+				Text = "󰉿",
+				Method = "󰊕",
+				Function = "󰊕",
+				Constructor = "󰒓",
+
+				Field = "󰜢",
+				Variable = "󰆦",
+				Property = "󰖷",
+
+				Class = "󱡠",
+				Interface = "󱡠",
+				Struct = "󱡠",
+				Module = "󰅩",
+
+				Unit = "󰪚",
+				Value = "󰦨",
+				Enum = "󰦨",
+				EnumMember = "󰦨",
+
+				Keyword = "󰻾",
+				Constant = "󰏿",
+
+				Snippet = "󱄽",
+				Color = "󰏘",
+				File = "󰈔",
+				Reference = "󰬲",
+				Folder = "󰉋",
+				Event = "󱐋",
+				Operator = "󰪚",
+				TypeParameter = "󰬛",
+			},
+		},
+
+		-- (Default) Only show the documentation popup when manually triggered
+		completion = {
+			menu = { border = "single" },
+			documentation = { auto_show = true, auto_show_delay_ms = 200, window = { border = "single" } },
+			ghost_text = { enabled = true },
+		},
+
+		-- Default list of enabled providers defined so that you can extend it
+		-- elsewhere in your config, without redefining it, due to `opts_extend`
+		sources = {
+			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			providers = {
+				copilot = {
+					name = "copilot",
+					module = "blink-cmp-copilot",
+					score_offset = 100,
+					async = true,
+					transform_items = function(_, items)
+						local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+						local kind_idx = #CompletionItemKind + 1
+						CompletionItemKind[kind_idx] = "Copilot"
+						for _, item in ipairs(items) do
+							item.kind = kind_idx
+						end
+						return items
+					end,
+				},
+			},
+		},
+		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
-	config = function()
-		local cmp = require("cmp")
-
-		local luasnip = require("luasnip")
-
-		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-		require("luasnip.loaders.from_vscode").lazy_load()
-
-		local kind_icons = {
-			Text = "󰊄",
-			Method = "",
-			Function = "",
-			Constructor = "",
-			Field = "",
-			Variable = "",
-			Class = "",
-			Interface = "",
-			Module = "󰅩",
-			Property = "",
-			Unit = "",
-			Value = "",
-			Enum = "",
-			Keyword = "",
-			Snippet = "",
-			Color = "",
-			File = "",
-			Reference = "",
-			Folder = "",
-			EnumMember = "",
-			Constant = "",
-			Struct = "",
-			Event = "",
-			Operator = "",
-			TypeParameter = "󰊄",
-		}
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-k>"] = cmp.mapping.select_prev_item(),
-				["<C-j>"] = cmp.mapping.select_next_item(),
-				["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-				["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-				["<C-e>"] = cmp.mapping({
-					i = cmp.mapping.abort(),
-					c = cmp.mapping.close(),
-				}),
-				-- Accept currently selected item. If none selected, `select` first item.
-				-- Set `select` to `false` to only confirm explicitly selected items.
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.expand_or_locally_jumpable() then
-						luasnip.expand_or_jump()
-					else
-						fallback()
-					end
-				end, {
-					"i",
-					"s",
-				}),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.jumpable(-1) then
-						luasnip.jump(-1)
-					else
-						fallback()
-					end
-				end, {
-					"i",
-					"s",
-				}),
-			}),
-			formatting = {
-				fields = { "kind", "abbr", "menu" },
-				format = function(entry, vim_item)
-					local highlights_info = require("colorful-menu").cmp_highlights(entry)
-
-					-- if highlight_info==nil, which means missing ts parser, let's fallback to use default `vim_item.abbr`.
-					-- What this plugin offers is two fields: `vim_item.abbr_hl_group` and `vim_item.abbr`.
-					if highlights_info ~= nil then
-						vim_item.abbr_hl_group = highlights_info.highlights
-						vim_item.abbr = highlights_info.text
-					end
-
-					vim_item.kind = kind_icons[vim_item.kind]
-
-					vim_item.menu = ({
-						nvim_lsp = "",
-						nvim_lua = "",
-						luasnip = "",
-						buffer = "",
-						path = "",
-						emoji = "",
-					})[entry.source.name]
-
-					return vim_item
-				end,
-			},
-			sources = {
-				{ name = "nvim_lsp" },
-				{ name = "nvim_lsp_signature_help" },
-				{ name = "luasnip" },
-				{ name = "nvim_lua" },
-				{ name = "path" },
-				{ name = "buffer" },
-				{ name = "treesitter" },
-			},
-			confirm_opts = {
-				behavior = cmp.ConfirmBehavior.Replace,
-				select = false,
-			},
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-			-- sources for autocompletion
-			-- configure lspkind for vs-code like pictograms in completion menu
-		})
-	end,
+	opts_extend = { "sources.default" },
 }

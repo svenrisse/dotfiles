@@ -1,6 +1,6 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets", "giuxtaposition/blink-cmp-copilot" },
+	dependencies = { "rafamadriz/friendly-snippets" },
 	version = "1.*",
 	opts = {
 		-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
@@ -59,12 +59,15 @@ return {
 			menu = { border = "single" },
 			documentation = { auto_show = true, auto_show_delay_ms = 200, window = { border = "single" } },
 			ghost_text = { enabled = false },
+			list = { selection = { preselect = false, auto_insert = false } },
 		},
+
+		signature = { enabled = true },
 
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			default = { "lsp", "path", "snippets", "buffer" },
 			providers = {
 				copilot = {
 					name = "copilot",

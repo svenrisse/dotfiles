@@ -22,8 +22,6 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"ts_ls",
-				"vtsls",
-				"volar",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -33,6 +31,7 @@ return {
 				"gopls",
 			},
 			automatic_installation = true,
+			automatic_enable = false,
 		})
 
 		mason_tool_installer.setup({
@@ -41,7 +40,6 @@ return {
 				"prettierd",
 				"stylua",
 				"eslint",
-				"eslint_d",
 				"gofumpt",
 				"goimports",
 				"golines",

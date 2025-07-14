@@ -55,15 +55,15 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig.volar.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- lspconfig.eslint.setup({
+		-- lspconfig.vuels.setup({
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
 		-- })
+
+		lspconfig.eslint.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		lspconfig.html.setup({
 			capabilities = capabilities,

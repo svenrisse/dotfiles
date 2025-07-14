@@ -29,4 +29,20 @@ return {
 			{ "<leader>gcp", "<cmd>GitConflictPrevConflict<cr>", desc = "Prev Git Conflict" },
 		},
 	},
+	{
+		"sindrets/diffview.nvim",
+		keys = {
+			{ "<leader>D", "", desc = "Diffview" },
+			{
+				"<leader>Dc",
+				"<cmd>DiffviewClose<cr>",
+				desc = "Diffview close",
+			},
+			{
+				"<leader>Dm",
+				"<cmd>DiffviewOpen master..HEAD<cr>",
+				desc = "Diffview compare current HEAD to master/main",
+			},
+		},
+	},
 }

@@ -19,6 +19,7 @@ return {
 				require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
 			end,
 			desc = "Find and Replace Word",
+			mode = { "n", "v" },
 		},
 		{
 			"<leader>fav",
@@ -26,6 +27,7 @@ return {
 				require("grug-far").with_visual_selection()
 			end,
 			desc = "Find and Replace Visual Selection",
+			mode = { "n", "v" },
 		},
 	},
 }

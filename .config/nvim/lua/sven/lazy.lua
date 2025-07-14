@@ -15,7 +15,6 @@ require("lazy").setup({
 	{ import = "sven.plugins" },
 	{ import = "sven.plugins.lsp" },
 	{ import = "sven.plugins.languages" },
-	{ import = "sven.plugins.ai" },
 }, {
 	checker = {
 		enabled = true,

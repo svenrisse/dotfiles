@@ -14,7 +14,7 @@ return {
 		require("neotest").setup({
 			adapters = {
 				require("neotest-jest")({
-					jestCommand = "yarn test --",
+					jestCommand = "yarn test:local --",
 					jestConfigFile = "jest.config.js",
 					env = { CI = true },
 					cwd = function(path)
@@ -69,9 +69,9 @@ return {
 		{
 			"<leader>tu",
 			function()
-				require("neotest").run.run_last({ jestCommand = "jest --updateSnapshot " })
+				require("neotest").run.run({ jestCommand = "jest --updateSnapshot " })
 			end,
-			desc = "Run last & update snapshots",
+			desc = "Run Nearest & update snapshots",
 		},
 
 		{
